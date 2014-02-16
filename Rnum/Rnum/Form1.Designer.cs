@@ -1,6 +1,6 @@
 ﻿namespace Rnum
 {
-    partial class Form1
+    partial class rNumForm
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,7 @@
             this.input.Name = "input";
             this.input.Size = new System.Drawing.Size(100, 20);
             this.input.TabIndex = 0;
+            this.input.TextChanged += new System.EventHandler(this.input_TextChanged);
             // 
             // Calculate
             // 
@@ -100,7 +101,7 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "to convert to an Arabic Number";
             // 
-            // Form1
+            // rNumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,8 +116,8 @@
             this.Controls.Add(this.output);
             this.Controls.Add(this.Calculate);
             this.Controls.Add(this.input);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "rNumForm";
+            this.Text = "Roman Numeral Converter";
             this.ResumeLayout(false);
             this.PerformLayout();
 
