@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rnum", "Rnum\Rnum.csproj", "{31B4BD4E-D680-488A-9074-AED66B8D3DED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralConversionTool", "Rnum\RomanNumeralConversionTool.csproj", "{31B4BD4E-D680-488A-9074-AED66B8D3DED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertTest", "ConvertTest\ConvertTest.csproj", "{846D14CE-66A0-445F-BC4D-AF4300881584}"
 EndProject
