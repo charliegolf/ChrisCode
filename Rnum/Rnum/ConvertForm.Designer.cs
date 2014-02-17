@@ -72,7 +72,7 @@
             // arabicNumber
             // 
             this.arabicNumber.AutoSize = true;
-            this.arabicNumber.Location = new System.Drawing.Point(12, 180);
+            this.arabicNumber.Location = new System.Drawing.Point(4, 180);
             this.arabicNumber.Name = "arabicNumber";
             this.arabicNumber.Size = new System.Drawing.Size(77, 13);
             this.arabicNumber.TabIndex = 4;
