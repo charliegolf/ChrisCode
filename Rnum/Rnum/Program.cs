@@ -16,7 +16,7 @@ namespace Rnum
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new rNumForm());
+            Application.Run(new convertForm());
 
           
             

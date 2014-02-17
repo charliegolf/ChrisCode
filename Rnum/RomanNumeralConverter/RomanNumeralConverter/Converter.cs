@@ -3,24 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Rnum;
-
 
 
 namespace RomanNumeralConverter
 {
     public class Converter
     {
-           
-            
-            static string roman =  rNumForm.romanValue;
-            static string output = rNumForm.arabicValue;
-            static char[] romanArray = roman.ToCharArray();
-            static  int count = 0;
-            static string lastNumber = "";
+            public string roman {get; set;}
+            public string output {get; set;}
+            public  int count;
+            public string lastNumber;
 
-            static string CalculateValue()
+            public string CalculateValue()
             {
+             char[] romanArray = roman.ToCharArray();
 
             for (int i = 0; i < romanArray.Length; i++)
             {
@@ -93,9 +89,9 @@ namespace RomanNumeralConverter
 
 
                  output = Convert.ToString(count);
-                 return output;
-            }
                 
+            }
+            return output;  
 
             }
     }
