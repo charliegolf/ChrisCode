@@ -31,18 +31,21 @@
             this.romanInput = new System.Windows.Forms.TextBox();
             this.arabicOutput = new System.Windows.Forms.TextBox();
             this.convertButton = new System.Windows.Forms.Button();
+            this.romanNumeral = new System.Windows.Forms.Label();
+            this.arabicNumber = new System.Windows.Forms.Label();
+            this.instruction = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // romanInput
             // 
-            this.romanInput.Location = new System.Drawing.Point(87, 31);
+            this.romanInput.Location = new System.Drawing.Point(87, 50);
             this.romanInput.Name = "romanInput";
             this.romanInput.Size = new System.Drawing.Size(100, 20);
             this.romanInput.TabIndex = 0;
-             // 
+            // 
             // arabicOutput
             // 
-            this.arabicOutput.Location = new System.Drawing.Point(87, 204);
+            this.arabicOutput.Location = new System.Drawing.Point(87, 180);
             this.arabicOutput.Name = "arabicOutput";
             this.arabicOutput.Size = new System.Drawing.Size(100, 20);
             this.arabicOutput.TabIndex = 1;
@@ -57,11 +60,41 @@
             this.convertButton.UseVisualStyleBackColor = true;
             this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
+            // romanNumeral
+            // 
+            this.romanNumeral.AutoSize = true;
+            this.romanNumeral.Location = new System.Drawing.Point(1, 50);
+            this.romanNumeral.Name = "romanNumeral";
+            this.romanNumeral.Size = new System.Drawing.Size(80, 13);
+            this.romanNumeral.TabIndex = 3;
+            this.romanNumeral.Text = "RomanNumeral";
+            // 
+            // arabicNumber
+            // 
+            this.arabicNumber.AutoSize = true;
+            this.arabicNumber.Location = new System.Drawing.Point(12, 180);
+            this.arabicNumber.Name = "arabicNumber";
+            this.arabicNumber.Size = new System.Drawing.Size(77, 13);
+            this.arabicNumber.TabIndex = 4;
+            this.arabicNumber.Text = "Arabic Number";
+            // 
+            // instruction
+            // 
+            this.instruction.AutoSize = true;
+            this.instruction.Location = new System.Drawing.Point(26, 13);
+            this.instruction.Name = "instruction";
+            this.instruction.Size = new System.Drawing.Size(208, 13);
+            this.instruction.TabIndex = 5;
+            this.instruction.Text = "Enter a Roman numeral and click \'Convert\'";
+            // 
             // convertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.instruction);
+            this.Controls.Add(this.arabicNumber);
+            this.Controls.Add(this.romanNumeral);
             this.Controls.Add(this.convertButton);
             this.Controls.Add(this.arabicOutput);
             this.Controls.Add(this.romanInput);
@@ -77,5 +110,8 @@
         private System.Windows.Forms.TextBox romanInput;
         private System.Windows.Forms.TextBox arabicOutput;
         private System.Windows.Forms.Button convertButton;
+        private System.Windows.Forms.Label romanNumeral;
+        private System.Windows.Forms.Label arabicNumber;
+        private System.Windows.Forms.Label instruction;
     }
 }
