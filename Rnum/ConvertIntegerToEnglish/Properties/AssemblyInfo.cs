@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ConversionTester")]
+[assembly: AssemblyTitle("ConvertIntegerToEnglish")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ConversionTester")]
+[assembly: AssemblyProduct("ConvertIntegerToEnglish")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8f9ebfff-33ec-46df-b28d-c76e575f3923")]
+[assembly: Guid("d8106d2f-25ad-43d7-87ae-480b122ac2f5")]
 
 // Version information for an assembly consists of the following four values:
 //
