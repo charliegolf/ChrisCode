@@ -18,18 +18,21 @@ using System.Reflection;
 
 namespace RomanConverterAutomation
 {
-    class Program
+    public class ConverionsAutomation
     {
-        static void Main(string[] args)
+        public void Automation()
         {
-            //Create an array of test cases
-            string[] convertTestArray = new string[] { "I", "IV", "V", "IX", "X", "L", "XC", "C", "CM", "M", "MMM" };
+            //Create an array of test cases from a stored csv file.
+           
+            String[] convertTestArray = File.ReadAllText(@"C:\ConversionAutomationTestInput.csv").Split(',');
 
-            TestStack.White.Application app = TestStack.White.Application.Launch("C:\\rnum\\rnum.exe");
+
+            TestStack.White.Application app = TestStack.White.Application.Launch("C:\\Users\\chris\\Documents\\GitHub\\ChrisCode\\Rnum\\Rnum\\bin\\Debug\\rnum.exe");
             Window window = app.GetWindow(SearchCriteria.ByText("ConvertForm"), TestStack.White.Factory.InitializeOption.WithCache);
             window.WaitWhileBusy();
 
-           foreach (string value in convertTestArray)
+           foreach (string value in convertTestArray
+               )
             {
                 string romanNumeral = value;
                 Window main = app.GetWindow("ConvertForm");
@@ -61,7 +64,7 @@ namespace RomanConverterAutomation
                     for (int index = 0; index < length; index++)
                         sb.AppendLine(string.Join(delimiter, result[index]));
                     File.AppendAllText(filePath, sb.ToString());
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
                 }
             }
         }
