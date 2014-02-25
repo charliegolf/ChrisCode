@@ -27,7 +27,7 @@ namespace RomanConverterAutomation
             String[] convertTestArray = File.ReadAllText(@"C:\ConversionAutomationTestInput.csv").Split(',');
 
 
-            TestStack.White.Application app = TestStack.White.Application.Launch("C:\\Users\\chris\\Documents\\GitHub\\ChrisCode\\Rnum\\Rnum\\bin\\Debug\\rnum.exe");
+            TestStack.White.Application app = TestStack.White.Application.Launch("C:\\Users\\chris.gilholm\\Documents\\GitHub\\ChrisCode\\Rnum\\Rnum\\bin\\Debug\\rnum.exe");
             Window window = app.GetWindow(SearchCriteria.ByText("ConvertForm"), TestStack.White.Factory.InitializeOption.WithCache);
             window.WaitWhileBusy();
 
