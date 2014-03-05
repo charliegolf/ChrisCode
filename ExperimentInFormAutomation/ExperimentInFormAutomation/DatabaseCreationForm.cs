@@ -11,8 +11,6 @@ using System.Diagnostics;
 using System.Windows.Automation;
 using System.Threading;
 
-
-
 namespace ExperimentInFormAutomation 
 {
     public partial class DatabaseCreationForm : Form 
@@ -47,13 +45,16 @@ namespace ExperimentInFormAutomation
             AutomationElement aeForm = null; int numWaits = 0;
             do
             {
-                Console.WriteLine("Looking for testUIAutomationForm . . . ");
-                aeForm = aeDesktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "testUIAutomationForm")); 
+                aeForm = aeDesktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "Test UI Automation")); 
                 ++numWaits; Thread.Sleep(100); } 
-            while (aeForm == null && numWaits < 50);
-            if (aeForm == null) throw new Exception("Failed to find testUIAutomationForm"); 
-            else Console.WriteLine("Found it!");
-        }
+                  while (aeForm == null && numWaits < 50);
+                         if (aeForm == null) throw new Exception("Failed to find Test UI Automation");
+
+            AutomationElement aeCalendar = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Calendar));
+            ValuePattern vpCalendar = (ValuePattern)aeCalendar.GetCurrentPattern(ValuePattern.Pattern); 
+            
+        }  
+      
 
         private void databaseCreateButton_Click(object sender, EventArgs e)
         {
