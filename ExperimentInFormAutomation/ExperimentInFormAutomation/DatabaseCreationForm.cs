@@ -50,8 +50,12 @@ namespace ExperimentInFormAutomation
                   while (aeForm == null && numWaits < 50);
                          if (aeForm == null) throw new Exception("Failed to find Test UI Automation");
 
-            AutomationElement aeCalendar = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Calendar));
-            ValuePattern vpCalendar = (ValuePattern)aeCalendar.GetCurrentPattern(ValuePattern.Pattern); 
+                         AutomationElement aeCalendar1 = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "06/03/2014 21:12"));
+                         if (aeCalendar1 != null)
+                             MessageBox.Show("Worked");
+            else
+                             MessageBox.Show("Died");
+                        // ValuePattern vpCalendar = (ValuePattern)aeCalendar1.GetCurrentPattern(ValuePattern.Pattern); vpCalendar.SetValue("01/01/2014 21:12");
             
         }  
       
