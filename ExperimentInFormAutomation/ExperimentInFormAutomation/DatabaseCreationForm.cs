@@ -39,23 +39,28 @@ namespace ExperimentInFormAutomation
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            Process p = Process.Start("C:\\Users\\chris\\Documents\\GitHub\\ChrisCode\\testUINavigation\\testUINavigation\\bin\\Debug\\testUINavigation.exe");
+            Process p = Process.Start("C:\\Users\\chris.gilholm\\Documents\\GitHub\\ChrisCode\\testUINavigation\\testUINavigation\\bin\\Debug\\testUINavigation.exe");
             AutomationElement aeDesktop = AutomationElement.RootElement;
 
             AutomationElement aeForm = null; int numWaits = 0;
             do
             {
-                aeForm = aeDesktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "Test UI Automation")); 
-                ++numWaits; Thread.Sleep(100); } 
-                  while (aeForm == null && numWaits < 50);
-                         if (aeForm == null) throw new Exception("Failed to find Test UI Automation");
+                aeForm = aeDesktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "Test UI Automation"));
+                ++numWaits; Thread.Sleep(100);
+            }
+            while (aeForm == null && numWaits < 50);
+            if (aeForm == null) throw new Exception("Failed to find Test UI Automation");
 
-                         AutomationElement aeCalendar1 = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "06/03/2014 21:12"));
-                         if (aeCalendar1 != null)
-                             MessageBox.Show("Worked");
-            else
-                             MessageBox.Show("Died");
-                        // ValuePattern vpCalendar = (ValuePattern)aeCalendar1.GetCurrentPattern(ValuePattern.Pattern); vpCalendar.SetValue("01/01/2014 21:12");
+            AutomationElement aeText = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit));
+
+            ValuePattern vpTextBox = (ValuePattern)aeText.GetCurrentPattern(ValuePattern.Pattern);
+            vpTextBox.SetValue("Holy Cow, it worked!!");
+
+            AutomationElement aeCalendar = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, "testDateTimePicker"));
+            aeCalendar.SetFocus();
+            ValuePattern getCalendarValue = (ValuePattern)aeCalendar.GetCurrentPattern(ValuePattern.Pattern);
+            //getCalendarValue.SetValue("01/01/2013 09:32");
+            //getCalendarValue.Current.Value = "01/01/2013";
             
         }  
       
