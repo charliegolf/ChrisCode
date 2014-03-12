@@ -48,6 +48,8 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomateCalendar.cs" />
+    <Compile Include="AutomateTextBox.cs" />
     <Compile Include="DatabaseCreationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,9 +57,12 @@
       <DependentUpon>DatabaseCreationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DummySQLConnection.cs" />
+    <Compile Include="FindApplication.cs" />
+    <Compile Include="ILaunchApplications.cs" />
     <Compile Include="ISearchForServers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartAutomationTestForm.cs" />
     <EmbeddedResource Include="DatabaseCreationForm.resx">
       <DependentUpon>DatabaseCreationForm.cs</DependentUpon>
     </EmbeddedResource>

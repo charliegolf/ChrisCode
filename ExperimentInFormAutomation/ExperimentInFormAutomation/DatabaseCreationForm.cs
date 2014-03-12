@@ -39,36 +39,13 @@ namespace ExperimentInFormAutomation
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            Process p = Process.Start("C:\\Users\\chris.gilholm\\Documents\\GitHub\\ChrisCode\\testUINavigation\\testUINavigation\\bin\\Debug\\testUINavigation.exe");
-            AutomationElement aeDesktop = AutomationElement.RootElement;
+            ILaunchApplications thisLAunch = new StartAutomationTestForm();
+            thisLAunch.LaunchTestUINavigation();
 
-            AutomationElement aeForm = null; int numWaits = 0;
-            do
-            {
-                aeForm = aeDesktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "Test UI Automation"));
-                ++numWaits; Thread.Sleep(100);
-            }
-            while (aeForm == null && numWaits < 50);
-            if (aeForm == null) throw new Exception("Failed to find Test UI Automation");
-
-            AutomationElement aeText = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit));
-
-            ValuePattern vpTextBox = (ValuePattern)aeText.GetCurrentPattern(ValuePattern.Pattern);
-            vpTextBox.SetValue("Holy Cow, it worked!!");
-
-            AutomationElement aeCalendar = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, "testDateTimePicker"));
-            aeCalendar.SetFocus();
-            ValuePattern getCalendarValue = (ValuePattern)aeCalendar.GetCurrentPattern(ValuePattern.Pattern);
-            //getCalendarValue.SetValue("01/01/2013 09:32");
-            //getCalendarValue.Current.Value = "01/01/2013";
-            
-        }  
-      
-
-        private void databaseCreateButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
+            FindApplication thisFind = new FindApplication();
+            AutomateTextBox thisTextBox = new AutomateTextBox();
+            thisTextBox.AutomateThisTextBox(thisFind.FindForm());
+        
+         }  
     }
 }

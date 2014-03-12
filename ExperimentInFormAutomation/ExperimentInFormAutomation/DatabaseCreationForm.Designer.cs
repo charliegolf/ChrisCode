@@ -66,7 +66,6 @@
             this.databaseCreateButton.TabIndex = 2;
             this.databaseCreateButton.Text = "Create Database";
             this.databaseCreateButton.UseVisualStyleBackColor = true;
-            this.databaseCreateButton.Click += new System.EventHandler(this.databaseCreateButton_Click);
             // 
             // instructionLabel
             // 
