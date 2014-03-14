@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using System.Windows.Automation;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace ExperimentInFormAutomation
 {
     class StartAutomationTestForm:ILaunchApplications
     {
-        public void LaunchTestUINavigation()
+        public int LaunchTestUINavigation()
         {
-           Process p = Process.Start("C:\\Users\\chris\\Documents\\GitHub\\ChrisCode\\testUINavigation\\testUINavigation\\bin\\Debug\\testUINavigation.exe");
-           
+            String myLocation = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); 
+            String thisStart = Path.Combine(myLocation,  "GitHub", "ChrisCode", "testUINavigation", "testUINavigation", "bin", "Debug", "testUINavigation.exe");
+            Process p = Process.Start(thisStart);
+            return p.Id;
         }
     }
 }

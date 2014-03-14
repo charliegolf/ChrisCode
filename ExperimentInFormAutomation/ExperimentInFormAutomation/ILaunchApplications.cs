@@ -8,6 +8,6 @@ namespace ExperimentInFormAutomation
 {
     interface ILaunchApplications
     {
-        void LaunchTestUINavigation();
+        int LaunchTestUINavigation();
     }
 }

@@ -40,11 +40,15 @@ namespace ExperimentInFormAutomation
         private void testButton_Click(object sender, EventArgs e)
         {
             ILaunchApplications thisLAunch = new StartAutomationTestForm();
-            thisLAunch.LaunchTestUINavigation();
+            int pID = thisLAunch.LaunchTestUINavigation();
 
-            FindApplication thisFind = new FindApplication();
+            FindApplication Find = new FindApplication();
+            AutomationElement FindForm = Find.FindForm();
             AutomateTextBox thisTextBox = new AutomateTextBox();
-            thisTextBox.AutomateThisTextBox(thisFind.FindForm());
+            thisTextBox.AutomateThisTextBox(FindForm);
+
+            AutomateCalendar thisCalendar = new AutomateCalendar();
+            thisCalendar.AutomateDatePicker(FindForm, pID);
         
          }  
     }

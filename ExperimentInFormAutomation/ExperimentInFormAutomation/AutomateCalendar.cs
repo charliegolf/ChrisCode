@@ -20,10 +20,10 @@ namespace ExperimentInFormAutomation
 {
     class AutomateCalendar
     {
-        public void AutomateDatePicker(AutomationElement aeForm)
+        public void AutomateDatePicker(AutomationElement aeForm, int pID)
         {
 
-            TestStack.White.Application app = TestStack.White.Application.Attach(??something To get the process id ArgumentOutOfRangeException the running ui??);
+            TestStack.White.Application app = TestStack.White.Application.Attach(pID);
 
             //Failed attempt using the UI Automation framework
             //Window window = aeForm.GetWindow(SearchCriteria.ByText("testUIAutomationForm"), TestStack.White.Factory.InitializeOption.WithCache);
