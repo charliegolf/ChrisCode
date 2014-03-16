@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-
 namespace ExperimentInFormAutomation
 {
-    interface ILaunchApplications
+    class FindProcessID
     {
-        Process LaunchTestUINavigation();
+        public int FindFormProcessID(Process p)
+        {
+            return p.Id;
+        }
     }
 }

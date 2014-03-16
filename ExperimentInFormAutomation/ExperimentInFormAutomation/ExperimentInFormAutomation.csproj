@@ -54,6 +54,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveFormName.cs" />
     <Compile Include="AutomateCalendar.cs" />
     <Compile Include="AutomateTextBox.cs" />
     <Compile Include="DatabaseCreationForm.cs">
@@ -64,6 +65,7 @@
     </Compile>
     <Compile Include="DummySQLConnection.cs" />
     <Compile Include="FindApplication.cs" />
+    <Compile Include="FindProcessID.cs" />
     <Compile Include="ILaunchApplications.cs" />
     <Compile Include="ISearchForServers.cs" />
     <Compile Include="Program.cs" />

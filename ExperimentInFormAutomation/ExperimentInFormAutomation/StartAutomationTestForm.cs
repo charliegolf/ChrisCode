@@ -12,12 +12,12 @@ namespace ExperimentInFormAutomation
 {
     class StartAutomationTestForm:ILaunchApplications
     {
-        public int LaunchTestUINavigation()
+        public Process LaunchTestUINavigation()
         {
             String myLocation = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); 
             String thisStart = Path.Combine(myLocation,  "GitHub", "ChrisCode", "testUINavigation", "testUINavigation", "bin", "Debug", "testUINavigation.exe");
             Process p = Process.Start(thisStart);
-            return p.Id;
+            return p;
         }
     }
 }

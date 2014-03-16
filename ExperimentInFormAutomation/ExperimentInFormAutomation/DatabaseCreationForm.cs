@@ -39,9 +39,11 @@ namespace ExperimentInFormAutomation
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            ILaunchApplications thisLAunch = new StartAutomationTestForm();
-            int pID = thisLAunch.LaunchTestUINavigation();
+            ILaunchApplications Launch = new StartAutomationTestForm();
+            Process p = Launch.LaunchTestUINavigation();
 
+            FindProcessID ProcessID = new FindProcessID();
+            int pID = ProcessID.FindFormProcessID(p);
             FindApplication Find = new FindApplication();
             AutomationElement FindForm = Find.FindForm();
             AutomateTextBox thisTextBox = new AutomateTextBox();

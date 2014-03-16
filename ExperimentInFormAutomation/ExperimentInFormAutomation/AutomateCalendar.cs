@@ -20,10 +20,20 @@ namespace ExperimentInFormAutomation
 {
     class AutomateCalendar
     {
+  
         public void AutomateDatePicker(AutomationElement aeForm, int pID)
         {
-
+            
             TestStack.White.Application app = TestStack.White.Application.Attach(pID);
+
+            ActiveFormName Form = new ActiveFormName();
+            string Name = Form.FormName();
+            Window window = app.GetWindow(SearchCriteria.ByText(Name), TestStack.White.Factory.InitializeOption.WithCache); 
+            window.WaitWhileBusy();
+
+            var Date = window.Get<TestStack.White.UIItems.DateTimePicker>(SearchCriteria.ByAutomationId("testDateTimePicker"));
+            Date.SetDate(DateTime.Now, DateFormat.YearDayMonth);
+
 
             //Failed attempt using the UI Automation framework
             //Window window = aeForm.GetWindow(SearchCriteria.ByText("testUIAutomationForm"), TestStack.White.Factory.InitializeOption.WithCache);
