@@ -42,15 +42,21 @@ namespace ExperimentInFormAutomation
             ILaunchApplications Launch = new StartAutomationTestForm();
             Process p = Launch.LaunchTestUINavigation();
 
+            Process FormProcess = Launch.GetProcess(p);
+                                 
             FindProcessID ProcessID = new FindProcessID();
-            int pID = ProcessID.FindFormProcessID(p);
+            int pID = ProcessID.FindFormProcessID(FormProcess);
+
             FindApplication Find = new FindApplication();
+
             AutomationElement FindForm = Find.FindForm();
+
             AutomateTextBox thisTextBox = new AutomateTextBox();
+
             thisTextBox.AutomateThisTextBox(FindForm);
 
             AutomateCalendar thisCalendar = new AutomateCalendar();
-            thisCalendar.AutomateDatePicker(FindForm, pID);
+            thisCalendar.AutomateDatePicker(FindForm, pID, p);
         
          }  
     }

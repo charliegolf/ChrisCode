@@ -11,5 +11,6 @@ namespace ExperimentInFormAutomation
     interface ILaunchApplications
     {
         Process LaunchTestUINavigation();
+        Process GetProcess(Process p);
     }
 }

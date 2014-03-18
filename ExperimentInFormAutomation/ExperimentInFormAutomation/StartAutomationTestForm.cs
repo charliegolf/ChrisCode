@@ -18,6 +18,12 @@ namespace ExperimentInFormAutomation
             String thisStart = Path.Combine(myLocation,  "GitHub", "ChrisCode", "testUINavigation", "testUINavigation", "bin", "Debug", "testUINavigation.exe");
             Process p = Process.Start(thisStart);
             return p;
+         }
+
+        public Process GetProcess(Process p)
+        {
+            return p;
         }
+
     }
 }

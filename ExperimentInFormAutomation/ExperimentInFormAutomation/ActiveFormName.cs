@@ -9,11 +9,9 @@ namespace ExperimentInFormAutomation
 {
     class ActiveFormName
     {
-        public string FormName()
+        public string FormName(Process p)
         {
-            ILaunchApplications Launch = new StartAutomationTestForm();
-            Process p = Launch.LaunchTestUINavigation();
-            return p.MainWindowTitle;
+           return p.MainWindowTitle;
         }
     }
 }

@@ -13,7 +13,7 @@ using TestStack.White.UIItems.WindowItems;
 using TestStack.White.UIItems.WindowStripControls;
 using System.IO;
 using System.Reflection;
-
+using System.Diagnostics;
 
 
 namespace ExperimentInFormAutomation
@@ -21,18 +21,19 @@ namespace ExperimentInFormAutomation
     class AutomateCalendar
     {
   
-        public void AutomateDatePicker(AutomationElement aeForm, int pID)
+        public void AutomateDatePicker(AutomationElement aeForm, int pID, Process p)
         {
             
             TestStack.White.Application app = TestStack.White.Application.Attach(pID);
 
             ActiveFormName Form = new ActiveFormName();
-            string Name = Form.FormName();
+
+            string Name = Form.FormName(p);
             Window window = app.GetWindow(SearchCriteria.ByText(Name), TestStack.White.Factory.InitializeOption.WithCache); 
             window.WaitWhileBusy();
 
-            var Date = window.Get<TestStack.White.UIItems.DateTimePicker>(SearchCriteria.ByAutomationId("testDateTimePicker"));
-            Date.SetDate(DateTime.Now, DateFormat.YearDayMonth);
+            DateTimePicker DateValue = window.Get<TestStack.White.UIItems.DateTimePicker>(SearchCriteria.ByAutomationId("testDateTimePicker"));
+            DateValue.Date = DateTime.Now.AddYears(10);
 
 
             //Failed attempt using the UI Automation framework
