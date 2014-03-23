@@ -31,10 +31,7 @@ namespace ExperimentInFormAutomation
                 string listITem = thisServerList.ElementAt(i);
                 serverSelectListBox.Items.Add(listITem);
             }
-                
-            
-
-            
+                            
         }
 
         private void testButton_Click(object sender, EventArgs e)
@@ -51,9 +48,11 @@ namespace ExperimentInFormAutomation
 
             AutomationElement FindForm = Find.FindForm();
 
-            AutomateTextBox thisTextBox = new AutomateTextBox();
+            AutomateTextBox TextBox = new AutomateTextBox();
+            TextBox.AutomateThisTextBox(FindForm);
 
-            thisTextBox.AutomateThisTextBox(FindForm);
+            AutomateListBox ListBox = new AutomateListBox();
+            ListBox.AutomateThisListBox(FindForm, 3);
 
             AutomateCalendar thisCalendar = new AutomateCalendar();
             thisCalendar.AutomateDatePicker(FindForm, pID, p);

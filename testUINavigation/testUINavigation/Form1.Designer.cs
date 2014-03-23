@@ -32,7 +32,7 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBoxLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.testComboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // testDateTimePicker
@@ -67,10 +67,10 @@
             this.textBoxLabel.TabIndex = 3;
             this.textBoxLabel.Text = "TextBox Control";
             // 
-            // comboBox1
+            // testComboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.testComboBox1.FormattingEnabled = true;
+            this.testComboBox1.Items.AddRange(new object[] {
             "Jimi",
             "Eddie",
             "Carlos",
@@ -79,17 +79,17 @@
             "Jeff",
             "Eric",
             "Billy"});
-            this.comboBox1.Location = new System.Drawing.Point(350, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.testComboBox1.Location = new System.Drawing.Point(350, 12);
+            this.testComboBox1.Name = "testComboBox1";
+            this.testComboBox1.Size = new System.Drawing.Size(121, 21);
+            this.testComboBox1.TabIndex = 5;
             // 
             // testUIAutomationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 261);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.testComboBox1);
             this.Controls.Add(this.textBoxLabel);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dateLabel);
@@ -107,7 +107,7 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label textBoxLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox testComboBox1;
     }
 }
 

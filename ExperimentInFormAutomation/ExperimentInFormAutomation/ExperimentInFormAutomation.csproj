@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="ActiveFormName.cs" />
     <Compile Include="AutomateCalendar.cs" />
+    <Compile Include="AutomateListBox.cs" />
     <Compile Include="AutomateTextBox.cs" />
     <Compile Include="DatabaseCreationForm.cs">
       <SubType>Form</SubType>
