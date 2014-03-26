@@ -10,8 +10,7 @@ namespace Diamond2
     {
         static void Main(string[] args)
              {
-                StringBuilder line = buildString();
-                buildDiamond(line);
+                buildDiamond();
              }
 
         public static string buildAlphabet()
@@ -42,56 +41,56 @@ namespace Diamond2
             return length;
           }
 
-        public static void buildDiamond(StringBuilder line)
+        public static void buildDiamond()
           {
             string alphabet = buildAlphabet();
             int rowLength = setStringLength();
             int goRight = rowLength;
             int goLeft = rowLength;
-            int counter = 0;
+            int counterTop = 0;
 
                for (int i=0; i<=rowLength; i++)
               {
-                   StringBuilder rows = buildString();
-                   rows.Length=rowLength*2;
-                   char thisChar = alphabet.ElementAt(counter);
+                   StringBuilder rowsTop = buildString();
+                   rowsTop.Length=rowLength*2;
+                   char thisChar = alphabet.ElementAt(counterTop);
                    if (i == 0)
                    {
-                       rows.Insert(goLeft, thisChar);
+                       rowsTop.Insert(goLeft, thisChar);
                    }
                    else
                    {
-                       rows.Insert(goLeft, thisChar);
-                       rows.Insert(goRight, thisChar);
+                       rowsTop.Insert(goLeft, thisChar);
+                       rowsTop.Insert(goRight, thisChar);
                    }
-                   counter++;
+                   counterTop++;
                    goLeft--;
                    goRight++;
-                   Console.WriteLine(rows);
+                   Console.WriteLine(rowsTop);
                }
 
-            int counter2 = rowLength - 1;
+            int counterBottom = rowLength - 1;
             int goRight2 = 1;
             int goLeft2 = rowLength*2-2;
 
                for (int i = rowLength; i >0; i--)
               {
-                  StringBuilder rows2 = buildString();
-                  rows2.Length = rowLength * 2;
-                  char thisChar = alphabet.ElementAt(counter2);
+                  StringBuilder rowsBottom = buildString();
+                  rowsBottom.Length = rowLength * 2;
+                  char thisChar = alphabet.ElementAt(counterBottom);
                    if (i==1)
                    {
-                       rows2.Insert(goRight2, thisChar);
+                       rowsBottom.Insert(goRight2, thisChar);
                    }
                    else 
                    {
-                       rows2.Insert(goLeft2, thisChar);
-                       rows2.Insert(goRight2, thisChar);
+                       rowsBottom.Insert(goLeft2, thisChar);
+                       rowsBottom.Insert(goRight2, thisChar);
                    }
-                  counter2--;
+                  counterBottom--;
                   goLeft2--;
                   goRight2++;
-                  Console.WriteLine(rows2);
+                  Console.WriteLine(rowsBottom);
              }
             Console.ReadKey();
        }
