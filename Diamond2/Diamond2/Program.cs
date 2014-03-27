@@ -9,9 +9,10 @@ namespace Diamond2
     class Program
     {
         static void Main(string[] args)
-             {
-                buildDiamond();
-             }
+            {
+               buildDiamond();
+            }
+
 
         public static string buildAlphabet()
             {
@@ -20,34 +21,36 @@ namespace Diamond2
             }
 
         public static char getInput()
-           {
-              Console.Write("Please enter a lower case letter ");
-              char letter = Convert.ToChar(Console.ReadLine());
-              return letter;
-           }
+            {
+               Console.Write("Please enter a lower case letter ");
+               char letter = Convert.ToChar(Console.ReadLine());
+               return letter;
+            }
 
 
         public static StringBuilder buildString()
-           {
-             StringBuilder line = new StringBuilder();
-             return line;
-           }
+            {
+               StringBuilder line = new StringBuilder();
+               return line;
+            }
+
 
         public static int setStringLength()
-          {
-            string alphabet = buildAlphabet();
-            char character = getInput();
-            int length = alphabet.IndexOf(character);
-            return length;
-          }
+           {
+              string alphabet = buildAlphabet();
+              char character = getInput();
+              int length = alphabet.IndexOf(character);
+              return length;
+           }
+
 
         public static void buildDiamond()
-          {
-            string alphabet = buildAlphabet();
-            int rowLength = setStringLength();
-            int goRight = rowLength;
-            int goLeft = rowLength;
-            int counterTop = 0;
+           {
+              string alphabet = buildAlphabet();
+              int rowLength = setStringLength();
+              int goRight = rowLength;
+              int goLeft = rowLength;
+              int counterTop = 0;
 
                for (int i=0; i<=rowLength; i++)
               {
@@ -69,9 +72,10 @@ namespace Diamond2
                    Console.WriteLine(rowsTop);
                }
 
-            int counterBottom = rowLength - 1;
-            int goRight2 = 1;
-            int goLeft2 = rowLength*2-2;
+
+              int counterBottom = rowLength - 1;
+              int goRight2 = 1;
+              int goLeft2 = rowLength*2-2;
 
                for (int i = rowLength; i >0; i--)
               {
@@ -91,7 +95,7 @@ namespace Diamond2
                   goLeft2--;
                   goRight2++;
                   Console.WriteLine(rowsBottom);
-             }
+              }
             Console.ReadKey();
        }
     }
