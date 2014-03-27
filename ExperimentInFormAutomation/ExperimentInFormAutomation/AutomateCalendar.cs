@@ -23,7 +23,7 @@ namespace ExperimentInFormAutomation
   
         public void AutomateDatePicker(AutomationElement aeForm, int pID, Process p)
         {
-            
+            /*
             TestStack.White.Application app = TestStack.White.Application.Attach(pID);
 
             ActiveFormName Form = new ActiveFormName();
@@ -34,18 +34,20 @@ namespace ExperimentInFormAutomation
 
             DateTimePicker DateValue = window.Get<TestStack.White.UIItems.DateTimePicker>(SearchCriteria.ByAutomationId("testDateTimePicker"));
             DateValue.Date = DateTime.Now.AddYears(10);
+              */
 
 
             //Failed attempt using the UI Automation framework
             //Window window = aeForm.GetWindow(SearchCriteria.ByText("testUIAutomationForm"), TestStack.White.Factory.InitializeOption.WithCache);
             //window.WaitWhileBusy();
 
-          
-            // AutomationElement aeCalendar = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, "testDateTimePicker"));
-            //aeCalendar.SetFocus();
-            //ValuePattern getCalendarValue = (ValuePattern)aeCalendar.GetCurrentPattern(ValuePattern.Pattern);
-            //getCalendarValue.SetValue("01/01/2013 09:32");
-            //getCalendarValue.Current.Value = "01/01/2013";
+
+           AutomationElement aeCalendar = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, "testDateTimePicker"));
+           aeCalendar.SetFocus();
+           ValuePattern getCalendarValue = (ValuePattern)aeCalendar.GetCurrentPattern(ValuePattern.Pattern);
+           getCalendarValue.SetValue("91.01.2001");
+           
+           
         }
     }
 }
