@@ -23,7 +23,6 @@ namespace ExperimentInFormAutomation
                     
          SelectionItemPattern selectPattern = (SelectionItemPattern)itemToSelect.GetCurrentPattern(SelectionItemPattern.Pattern);
          selectPattern.Select();
-
        }
     }
  
