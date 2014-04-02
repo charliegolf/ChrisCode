@@ -10,6 +10,12 @@ namespace TheSolitaireCipher
     {
         static void Main(string[] args)
         {
+            string spacelessInput = FormatInput.RemoveSpacesFromInput();
+           
+            Console.WriteLine(spacelessInput);
+            Console.ReadLine();
+ 
+          
 
         }
     }

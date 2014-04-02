@@ -14,17 +14,20 @@ namespace TheSolitaireCipher
         [TestMethod]
         public void IsUpperCase()
         {
-            Assert.IsTrue(char.IsUpper());
+            string result = FormatInput.ReceiveInputToEncrypt();
+            Assert.AreEqual(result.ToUpper(), result);
         }
-
+/*
         [TestMethod]
         public void IsAGroupOf5()
         {
+            Assert.IsTrue(groupLength == 5);
         }
 
         [TestMethod]
         public void IndexOfAIsOne()
         {
+
         }
 
         [TestMethod]
@@ -61,5 +64,6 @@ namespace TheSolitaireCipher
         public void FithNumberIsE()
         {
         }
+  */
     }
 }
