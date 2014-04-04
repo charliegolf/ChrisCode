@@ -17,53 +17,54 @@ namespace TheSolitaireCipher
             string result = FormatInput.ReceiveInputToEncrypt();
             Assert.AreEqual(result.ToUpper(), result);
         }
-/*
-        [TestMethod]
-        public void IsAGroupOf5()
-        {
-            Assert.IsTrue(groupLength == 5);
-        }
 
         [TestMethod]
-        public void IndexOfAIsOne()
+        public void IsDivisibleBy5()
         {
-
+                 String input = FormatInput.RemoveSpacesFromInput();  
+                 Assert.IsTrue(input.Length % 5 ==0);
         }
+        /*
+                [TestMethod]
+                public void IndexOfAIsOne()
+                {
 
-        [TestMethod]
-        public void IndexOfJIsTen()
-        {
-        }
+                }
 
-        [TestMethod]
-        public void IndexOfJIsTen()
-        {
-        }
+                [TestMethod]
+                public void IndexOfJIsTen()
+                {
+                }
 
-        [TestMethod]
-        public void IndexOfFirstInputIsOne()
-        {
-        }
+                [TestMethod]
+                public void IndexOfJIsTen()
+                {
+                }
 
-        [TestMethod]
-        public void IndexOfFithInputIsFive()
-        {
-        }
+                [TestMethod]
+                public void IndexOfFirstInputIsOne()
+                {
+                }
 
-        [TestMethod]
-        public void IsToalGreaterThanTwentySix()
-        {
-        }
+                [TestMethod]
+                public void IndexOfFithInputIsFive()
+                {
+                }
 
-        [TestMethod]
-        public void FirstNumberInputIsA()
-        {
-        }
+                [TestMethod]
+                public void IsToalGreaterThanTwentySix()
+                {
+                }
 
-        [TestMethod]
-        public void FithNumberIsE()
-        {
-        }
-  */
+                [TestMethod]
+                public void FirstNumberInputIsA()
+                {
+                }
+
+                [TestMethod]
+                public void FithNumberIsE()
+                {
+                }
+          */
     }
 }
