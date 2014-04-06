@@ -27,10 +27,12 @@ namespace TheSolitaireCipher
             String remainder = RemoveSpacesFromInput();
             int remainderLength = remainder.Length % 5;
             StringBuilder pad = new StringBuilder();
-            pad.Append(remainder);
-            for (int i = 0; i < 5-remainder.Length; i++)
-            {
-                pad.Append("X");
+            pad.Append(remainder);            if (remainderLength != 0)
+            { 
+              for (int i = 0; i < 5-remainderLength; i++)
+                {
+                    pad.Append("X");
+                }
             }
 
             String result  = pad.ToString();
@@ -51,6 +53,36 @@ namespace TheSolitaireCipher
                 counter++;
             }
              return fives;
+        }
+
+        public static StringBuilder ConvertIputToNumbers(Array input)
+        {
+            StringBuilder  inputAsLetters = new StringBuilder();
+            StringBuilder indexOfAlphabet = new StringBuilder();
+            StringBuilder inputAsNumbers = new StringBuilder();
+            String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            indexOfAlphabet.Append(alphabet);
+            Array inputArray = input;
+
+            foreach (String fives in inputArray)
+            {
+                inputAsLetters.Append(fives);
+            }
+
+                for (int i = 0; i < inputAsLetters.Length; i++)
+                {
+                    char c = inputAsLetters[i];
+                    for (int n = 0; n < indexOfAlphabet.Length; n++)
+                    {
+                        char letter = indexOfAlphabet[n];
+                        if (c == letter)
+                        {
+                            inputAsNumbers.Append(n+1);
+                            inputAsNumbers.Append(' ');
+                        }
+                    }
+                }
+            return inputAsNumbers;    
         }
 
      }

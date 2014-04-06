@@ -10,11 +10,9 @@ namespace TheSolitaireCipher
     {
         static void Main(string[] args)
         {
-            Array fives = FormatInput.GroupsOfFive();
-
- 
-          
-
+            String fives = FormatInput.MakeDivisibleByFive();
+            Console.WriteLine(fives);
+            Console.ReadKey();
         }
     }
 }

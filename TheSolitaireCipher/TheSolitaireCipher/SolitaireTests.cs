@@ -24,23 +24,32 @@ namespace TheSolitaireCipher
                  String input = FormatInput.RemoveSpacesFromInput();  
                  Assert.IsTrue(input.Length % 5 ==0);
         }
-        /*
+        
                 [TestMethod]
                 public void IndexOfAIsOne()
                 {
-
-                }
-
-                [TestMethod]
-                public void IndexOfJIsTen()
-                {
-                }
+                    string[] A = new string[1] {"A"};
+                    StringBuilder indexA = FormatInput.ConvertIputToNumbers(A);
+                    Assert.IsTrue(indexA[0] == 1);
+                 }
 
                 [TestMethod]
                 public void IndexOfJIsTen()
                 {
+                    string[] A = new string[1] { "J" };
+                    StringBuilder indexA = FormatInput.ConvertIputToNumbers(A);
+                    Assert.IsTrue(indexA[0] == 10);
+
                 }
 
+                [TestMethod]
+                public void IndexOfXIsTwentyFour()
+                {
+                    string[] A = new string[1] { "Z" };
+                    StringBuilder indexA = FormatInput.ConvertIputToNumbers(A);
+                    Assert.IsTrue(indexA[0] == 26);
+                }
+        /*
                 [TestMethod]
                 public void IndexOfFirstInputIsOne()
                 {
