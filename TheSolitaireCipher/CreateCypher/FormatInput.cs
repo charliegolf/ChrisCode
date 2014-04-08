@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-namespace TheSolitaireCipher
+
+namespace CreateCipher
 {
-    class FormatInput
+    public class FormatInput
     {
         public static string ReceiveInputToEncrypt()
         {
             Console.WriteLine("Please enter the text you wish to encrypt ");
             string inputText = Console.ReadLine().ToUpper();
-            return inputText;
+           
+           return inputText;
         }
 
-        public static String RemoveSpacesFromInput()
+        public static String RemoveSpacesFromInput(string input)
         {
-            string input = ReceiveInputToEncrypt();
             string spacelessInput = input.Replace(" ", "");
             return spacelessInput;
         }
 
-        public static string MakeDivisibleByFive()
+        public static string MakeDivisibleByFive(string remainder)
         {
-            String remainder = RemoveSpacesFromInput();
             int remainderLength = remainder.Length % 5;
             StringBuilder pad = new StringBuilder();
             pad.Append(remainder);            if (remainderLength != 0)
@@ -39,32 +40,32 @@ namespace TheSolitaireCipher
             return result;
           }
         
-        public static Array GroupsOfFive()
+        public static List<String> GroupsOfFive(string input)
         {
-            string input = MakeDivisibleByFive();
             int group= 5;
             int stringLength = input.Length;
-            String[] fives= new String[stringLength];
+            List<String> fives= new List<String>();
             int counter = 0;
             for (int i = 0; i < stringLength; i += group)
             {
                 if (i + group > stringLength) group = stringLength - i;
-                fives[counter] = input.Substring(i, group);
+                fives.Add(input.Substring(i, group));
                 counter++;
             }
              return fives;
         }
 
-        public static StringBuilder ConvertIputToNumbers(Array input)
+        public static StringBuilder ConvertIputToNumbers(List<String> input)
         {
             StringBuilder  inputAsLetters = new StringBuilder();
             StringBuilder indexOfAlphabet = new StringBuilder();
             StringBuilder inputAsNumbers = new StringBuilder();
             String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             indexOfAlphabet.Append(alphabet);
-            Array inputArray = input;
+            List<String> inputList = new List<String>();
+            inputList = input;
 
-            foreach (String fives in inputArray)
+            foreach (String fives in inputList)
             {
                 inputAsLetters.Append(fives);
             }
