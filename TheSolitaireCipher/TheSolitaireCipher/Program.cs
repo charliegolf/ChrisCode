@@ -16,6 +16,7 @@ namespace TheSolitaireCipher
             string fives = FormatInput.MakeDivisibleByFive(input);
             List<String> convertedToFives = FormatInput.GroupsOfFive(fives);
             StringBuilder convertedToNumbers = FormatInput.ConvertIputToNumbers(convertedToFives);
+            List<int> key = KeyTheDeck.CreateDeck();
             Console.WriteLine(convertedToNumbers);
             Console.ReadKey();
         }
