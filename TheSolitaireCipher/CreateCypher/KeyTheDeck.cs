@@ -11,11 +11,11 @@ namespace CreateCipher
         public static List<int> CreateDeck()
         {
             List<int> deck = new List<int>();
-            for (int c = 0; c < 4; c++)
+            for (int cardSuites = 0; cardSuites < 4; cardSuites++)
             {
-                for (int i = 1; i <= 13; i++)
+                for (int cardValues = 1; cardValues <= 13; cardValues++)
                 {
-                    deck.Add(i);
+                    deck.Add(cardValues);
                 }
             }
             deck.Add(53);
