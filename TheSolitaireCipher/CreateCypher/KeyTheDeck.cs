@@ -70,6 +70,12 @@ namespace CreateCipher
             }
             return deck;
         }
+
+        public class CutTheDeck
+        {
+
+
+        }
     }
 }
 

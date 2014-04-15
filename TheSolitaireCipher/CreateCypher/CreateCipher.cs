@@ -64,8 +64,8 @@ namespace CreateCipher
                 counter++;
             }
              return fives;
-        }
-    }
+         }
+     }
 
     public class ConvertLettersToNumbers
     {
