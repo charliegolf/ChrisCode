@@ -17,8 +17,8 @@ namespace TestCipher
         public void IsDivisibleBy5()
         {
             String input = "iohferiohfnnjFWEF fefweuihdqwiohjce gfgGREG"; 
-            String spaceless = FormatInput.RemoveSpacesFromInput(input);  
-            String fives = FormatInput.MakeDivisibleByFive(spaceless);
+            String spaceless = RemoveSpaces.RemoveSpacesFromInput(input); 
+            String fives =  DivideByFive.MakeDivisibleByFive(spaceless);
             Assert.IsTrue(fives.Length % 5 == 0);
         }
         
@@ -26,8 +26,8 @@ namespace TestCipher
         public void IndexOfAIsOne()
         {
              string A = "Adkfjt"; ;
-             List<String> aList = FormatInput.GroupsOfFive(A);
-             StringBuilder indexA = FormatInput.ConvertIputToNumbers(aList);
+             List<String> aList = MakeGroupsOfFive.GroupsOfFive(A);
+             StringBuilder indexA = ConvertLettersToNumbers.ConvertIputToNumbers(aList);
              string indexAString = indexA.ToString();
              Int16 atIndex0 = Convert.ToInt16(indexAString);
              Assert.IsTrue(atIndex0 == 1);
@@ -36,9 +36,9 @@ namespace TestCipher
         [TestMethod]
         public void IndexOfJIsTen()
         {
-             string J = "J"; 
-             List<String> jList = FormatInput.GroupsOfFive(J);
-             StringBuilder indexA = FormatInput.ConvertIputToNumbers(jList);
+             string J = "J";
+             List<String> jList = MakeGroupsOfFive.GroupsOfFive(J);
+             StringBuilder indexA = ConvertLettersToNumbers.ConvertIputToNumbers(jList);
              string indexAString = indexA.ToString();
              Int16 atIndex0 = Convert.ToInt16(indexAString);
              Assert.IsTrue(atIndex0 == 10);
@@ -49,8 +49,8 @@ namespace TestCipher
          public void IndexOfXIsTwentyFour()
          {
               string Z = "Z";
-              List<String> zList = FormatInput.GroupsOfFive(Z);
-              StringBuilder indexA = FormatInput.ConvertIputToNumbers(zList);             string indexAString = indexA.ToString();
+              List<String> zList = MakeGroupsOfFive.GroupsOfFive(Z);
+              StringBuilder indexA = ConvertLettersToNumbers.ConvertIputToNumbers(zList); string indexAString = indexA.ToString();
              Int16 atIndex0 = Convert.ToInt16(indexAString);
               Assert.IsTrue(atIndex0 == 26);
          }

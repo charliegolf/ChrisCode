@@ -33,17 +33,17 @@ namespace CreateCipher
             {
                 if (deck.Contains(53))
                 {
-                    int positionJokerA =deck.IndexOf(53);
+                    int positionJokerA = deck.IndexOf(53);
 
                     if (positionJokerA == 54)
                     {
                         deck.Insert(2, 53);
-                        deck.RemoveAt(positionJokerA);   
+                        deck.RemoveAt(positionJokerA);
                     }
                     else
                     {
                         deck.Insert(positionJokerA + 1, 53);
-                        deck.RemoveAt(positionJokerA); 
+                        deck.RemoveAt(positionJokerA);
                     }
                 }
 
@@ -66,10 +66,10 @@ namespace CreateCipher
                             deck.Insert(positionJokerB + 2, 53);
                             deck.RemoveAt(positionJokerB);
                         }
-                   }
+                }
             }
             return deck;
         }
-     }
-   }
+    }
 }
+

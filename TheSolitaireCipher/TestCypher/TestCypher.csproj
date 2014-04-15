@@ -51,6 +51,10 @@
       <Project>{755577a7-3c0d-40c5-baf2-e6d72c475b50}</Project>
       <Name>CreateCypher</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TheSolitaireCipher\TheSolitaireCipher.csproj">
+      <Project>{bfa59832-6a89-440e-9044-050ed50c60ac}</Project>
+      <Name>TheSolitaireCipher</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

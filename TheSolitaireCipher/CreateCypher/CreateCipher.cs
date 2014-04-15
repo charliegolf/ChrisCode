@@ -26,11 +26,12 @@ namespace CreateCipher
             string spacelessInput = input.Replace(" ", "");
             return spacelessInput;
         }
+    }
 
     public class DivideByFive
     {
 
-        public static string MakeDivisibleByFive(string remainder)
+        public static String MakeDivisibleByFive(string remainder)
         {
             int remainderLength = remainder.Length % 5;
             StringBuilder pad = new StringBuilder();
@@ -44,12 +45,9 @@ namespace CreateCipher
 
             String result  = pad.ToString();
             return result;
-           }
-         }
+          }
      }
-     }
-
-
+     
     public class MakeGroupsOfFive
     {
         
@@ -72,9 +70,9 @@ namespace CreateCipher
     public class ConvertLettersToNumbers
     {
 
-        public static StringBuilder ConvertIputToNumbers(List<String> input)
+        public static StringBuilder ConvertIputToNumbers(List<string> input)
         {
-            StringBuilder  inputAsLetters = new StringBuilder();
+            StringBuilder inputAsLetters = new StringBuilder();
             StringBuilder indexOfAlphabet = new StringBuilder();
             StringBuilder inputAsNumbers = new StringBuilder();
             String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -87,23 +85,21 @@ namespace CreateCipher
                 inputAsLetters.Append(fives);
             }
 
-                for (int i = 0; i < inputAsLetters.Length; i++)
+            for (int i = 0; i < inputAsLetters.Length; i++)
+            {
+                char c = inputAsLetters[i];
+                for (int n = 0; n < indexOfAlphabet.Length; n++)
                 {
-                    char c = inputAsLetters[i];
-                    for (int n = 0; n < indexOfAlphabet.Length; n++)
+                    char letter = indexOfAlphabet[n];
+                    if (c == letter)
                     {
-                        char letter = indexOfAlphabet[n];
-                        if (c == letter)
-                        {
-                            inputAsNumbers.Append(n+1);
-                            inputAsNumbers.Append(' ');
-                        }
+                        inputAsNumbers.Append(n + 1);
+                        inputAsNumbers.Append(' ');
                     }
                 }
-            return inputAsNumbers;    
+            }
+            return inputAsNumbers;
         }
-
     }
-
-     }
-}
+  }
+  
