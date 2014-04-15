@@ -8,21 +8,27 @@ using System.Text.RegularExpressions;
 
 namespace CreateCipher
 {
-    public class FormatInput
+    public class TakeInput
     {
         public static string ReceiveInputToEncrypt()
         {
             Console.WriteLine("Please enter the text you wish to encrypt ");
             string inputText = Console.ReadLine().ToUpper();
-           
-           return inputText;
+            return inputText;
         }
+    }
+
+    public class RemoveSpaces
+    {
 
         public static String RemoveSpacesFromInput(string input)
         {
             string spacelessInput = input.Replace(" ", "");
             return spacelessInput;
         }
+
+    public class DivideByFive
+    {
 
         public static string MakeDivisibleByFive(string remainder)
         {
@@ -38,7 +44,14 @@ namespace CreateCipher
 
             String result  = pad.ToString();
             return result;
-          }
+           }
+         }
+     }
+     }
+
+
+    public class MakeGroupsOfFive
+    {
         
         public static List<String> GroupsOfFive(string input)
         {
@@ -54,6 +67,10 @@ namespace CreateCipher
             }
              return fives;
         }
+    }
+
+    public class ConvertLettersToNumbers
+    {
 
         public static StringBuilder ConvertIputToNumbers(List<String> input)
         {
@@ -85,6 +102,8 @@ namespace CreateCipher
                 }
             return inputAsNumbers;    
         }
+
+    }
 
      }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreateCipher
 {
-    public class KeyTheDeck
+    public class CreateTheDeck
     {
         public static List<int> CreateDeck()
         {
@@ -23,7 +23,10 @@ namespace CreateCipher
 
             return deck;
         }
-        
+    }
+
+    public class MoveTheJokers
+    {
         public static List<int> MoveJokers(List<int> deck)
         {
             foreach (int element in deck)
@@ -67,5 +70,6 @@ namespace CreateCipher
             }
             return deck;
         }
+     }
    }
 }

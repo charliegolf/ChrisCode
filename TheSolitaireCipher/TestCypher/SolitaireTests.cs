@@ -12,29 +12,25 @@ namespace TestCipher
     [TestClass]
     public class SolitaireTests
     {
-        [TestMethod]
-        public void IsUpperCase()
-        {
-            string result = FormatInput.ReceiveInputToEncrypt();
-            Assert.AreEqual(result.ToUpper(), result);
-        }
-
+       
         [TestMethod]
         public void IsDivisibleBy5()
         {
-
-            String input = FormatInput.ReceiveInputToEncrypt(); 
-            String fives = FormatInput.RemoveSpacesFromInput(input);  
-                 Assert.IsTrue(input.Length % 5 ==0);
+            String input = "iohferiohfnnjFWEF fefweuihdqwiohjce gfgGREG"; 
+            String spaceless = FormatInput.RemoveSpacesFromInput(input);  
+            String fives = FormatInput.MakeDivisibleByFive(spaceless);
+            Assert.IsTrue(fives.Length % 5 == 0);
         }
         
         [TestMethod]
         public void IndexOfAIsOne()
         {
-             string A = "A";
+             string A = "Adkfjt"; ;
              List<String> aList = FormatInput.GroupsOfFive(A);
              StringBuilder indexA = FormatInput.ConvertIputToNumbers(aList);
-             Assert.IsTrue(indexA[0] == 1);
+             string indexAString = indexA.ToString();
+             Int16 atIndex0 = Convert.ToInt16(indexAString);
+             Assert.IsTrue(atIndex0 == 1);
         }
 
         [TestMethod]
@@ -43,7 +39,9 @@ namespace TestCipher
              string J = "J"; 
              List<String> jList = FormatInput.GroupsOfFive(J);
              StringBuilder indexA = FormatInput.ConvertIputToNumbers(jList);
-             Assert.IsTrue(indexA[0] == 10);
+             string indexAString = indexA.ToString();
+             Int16 atIndex0 = Convert.ToInt16(indexAString);
+             Assert.IsTrue(atIndex0 == 10);
 
          }
 
@@ -52,8 +50,9 @@ namespace TestCipher
          {
               string Z = "Z";
               List<String> zList = FormatInput.GroupsOfFive(Z);
-              StringBuilder indexA = FormatInput.ConvertIputToNumbers(zList);
-              Assert.IsTrue(indexA[0] == 26);
+              StringBuilder indexA = FormatInput.ConvertIputToNumbers(zList);             string indexAString = indexA.ToString();
+             Int16 atIndex0 = Convert.ToInt16(indexAString);
+              Assert.IsTrue(atIndex0 == 26);
          }
         /*
                 [TestMethod]
