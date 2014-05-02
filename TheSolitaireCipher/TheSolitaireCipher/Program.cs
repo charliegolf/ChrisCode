@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 using CreateCipher;
 
 
+
 namespace TheSolitaireCipher
 {
     public class Program
     {
         static void Main(string[] args)
         {
+
             String input = TakeInput.ReceiveInputToEncrypt();
-            String spacesRemoved = RemoveSpaces.RemoveSpacesFromInput(input);
-            String divisibleByFive = DivideByFive.MakeDivisibleByFive(spacesRemoved);
-            List<String> groupedByFive = MakeGroupsOfFive.GroupsOfFive(divisibleByFive);
-            StringBuilder lettersToNumbers = ConvertLettersToNumbers.ConvertIputToNumbers(groupedByFive);
-            List<int> deck = CreateTheDeck.CreateDeck();
-            List<int> jokersMoved = MoveTheJokers.MoveJokers(deck);
+            String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
+            string fives = DivideByFive.MakeDivisibleByFive(input);
+            List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
+            StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertIputToNumbers(convertedToFives);
+            Console.WriteLine(convertedToNumbers);
+            List<int> key = CreateTheDeck.CreateDeck();
+            List<int> jokersMoved = MoveTheJokers.MoveJokers(key);
             Console.ReadKey();
         }
     }
