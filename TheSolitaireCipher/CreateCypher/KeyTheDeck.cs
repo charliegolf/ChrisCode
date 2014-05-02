@@ -6,25 +6,6 @@ using System.Threading.Tasks;
 
 namespace CreateCipher
 {
-    public class CreateTheDeck
-    {
-        public static List<int> CreateDeck()
-        {
-            List<int> deck = new List<int>();
-            for (int cardSuites = 0; cardSuites < 4; cardSuites++)
-            {
-                for (int cardValues = 1; cardValues <= 13; cardValues++)
-                {
-                    deck.Add(cardValues);
-                }
-            }
-            deck.Add(53);
-            deck.Add(54);
-
-
-            return deck;
-        }
-    }
 
     public class MoveTheJokers
     {
@@ -78,44 +59,42 @@ namespace CreateCipher
             }
             return deck;
         }
-
-
-        public class CutTheCards
+      
+  }
+    public class CutTheCards
+    {
+        public static List<int> TripleCut(List<int> deck)
         {
-            public static List<int> TripleCut(List<int> deck)
+            List<int> tripleCutList = new List<int>();
+
+            if (deck.IndexOf(54) < deck.IndexOf(53) && deck.IndexOf(53) != 53)
             {
-                List<int> tripleCutList = new List<int>();
-
-                if (deck.IndexOf(54) < deck.IndexOf(53))
+                for (int count = deck.IndexOf(53) + 1; count <= deck.Count; count++)
                 {
-                    for (int count = deck.IndexOf(53) + 1; count <= deck.Count; count++)
-                    {
-                        tripleCutList.Add(deck.ElementAt(count));
-                        tripleCutList.Add(54);
-                    }
-                    for (int count = deck.IndexOf(54) + 1; count < deck.IndexOf(53); count++)
-                    {
-                        tripleCutList.Add(deck.ElementAt(count));
-                        tripleCutList.Add(53);
-                    }
-                    for (int count = 0; count < deck.IndexOf(54); count++)
-                    {
-                        tripleCutList.Add(deck.ElementAt(count));
-
-                    }
+                    tripleCutList.Add(deck.ElementAt(count));
+                    tripleCutList.Add(54);
                 }
 
-                // else
+                for (int count = deck.IndexOf(54) + 1; count < deck.IndexOf(53); count++)
+                {
+                    tripleCutList.Add(deck.ElementAt(count));
+                    tripleCutList.Add(53);
+                }
 
-                // if (deck.IndexOf(53) < deck.IndexOf(54))
-                // {
+                for (int count = 0; count < deck.IndexOf(54); count++)
+                {
+                    tripleCutList.Add(deck.ElementAt(count));
 
-                // }
-                return tripleCutList;
-
+                }
             }
+
+
+
+              
+            return tripleCutList;
+
         }
-  }
+    }
 
 }
 
