@@ -12,38 +12,36 @@ namespace TestCipher
     [TestClass]
     public class SolitaireTests
     {
-        [TestMethod]
-        public void IsUpperCase()
-        {
-            string result = FormatInput.ReceiveInputToEncrypt();
-            Assert.AreEqual(result.ToUpper(), result);
-        }
-
+       
         [TestMethod]
         public void IsDivisibleBy5()
         {
-
-            String input = FormatInput.ReceiveInputToEncrypt(); 
-            String fives = FormatInput.RemoveSpacesFromInput(input);  
-                 Assert.IsTrue(input.Length % 5 ==0);
+            String input = "iohferiohfnnjFWEF fefweuihdqwiohjce gfgGREG"; 
+            String spaceless = RemoveSpaces.RemoveSpacesFromInput(input); 
+            String fives =  DivideByFive.MakeDivisibleByFive(spaceless);
+            Assert.IsTrue(fives.Length % 5 == 0);
         }
         
         [TestMethod]
         public void IndexOfAIsOne()
         {
-             string A = "A";
-             List<String> aList = FormatInput.GroupsOfFive(A);
-             StringBuilder indexA = FormatInput.ConvertIputToNumbers(aList);
-             Assert.IsTrue(indexA[0] == 1);
+             string A = "Adkfjt"; ;
+             List<String> aList = MakeGroupsOfFive.GroupsOfFive(A);
+             StringBuilder indexA = ConvertLettersToNumbers.ConvertIputToNumbers(aList);
+             string indexAString = indexA.ToString();
+             Int16 atIndex0 = Convert.ToInt16(indexAString);
+             Assert.IsTrue(atIndex0 == 1);
         }
 
         [TestMethod]
         public void IndexOfJIsTen()
         {
-             string J = "J"; 
-             List<String> jList = FormatInput.GroupsOfFive(J);
-             StringBuilder indexA = FormatInput.ConvertIputToNumbers(jList);
-             Assert.IsTrue(indexA[0] == 10);
+             string J = "J";
+             List<String> jList = MakeGroupsOfFive.GroupsOfFive(J);
+             StringBuilder indexA = ConvertLettersToNumbers.ConvertIputToNumbers(jList);
+             string indexAString = indexA.ToString();
+             Int16 atIndex0 = Convert.ToInt16(indexAString);
+             Assert.IsTrue(atIndex0 == 10);
 
          }
 
@@ -51,9 +49,10 @@ namespace TestCipher
          public void IndexOfXIsTwentyFour()
          {
               string Z = "Z";
-              List<String> zList = FormatInput.GroupsOfFive(Z);
-              StringBuilder indexA = FormatInput.ConvertIputToNumbers(zList);
-              Assert.IsTrue(indexA[0] == 26);
+              List<String> zList = MakeGroupsOfFive.GroupsOfFive(Z);
+              StringBuilder indexA = ConvertLettersToNumbers.ConvertIputToNumbers(zList); string indexAString = indexA.ToString();
+             Int16 atIndex0 = Convert.ToInt16(indexAString);
+              Assert.IsTrue(atIndex0 == 26);
          }
         /*
                 [TestMethod]

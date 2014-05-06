@@ -5,21 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using CreateCipher;
 
+
+
 namespace TheSolitaireCipher
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            String input = FormatInput.ReceiveInputToEncrypt();
-            String noSpaces = FormatInput.RemoveSpacesFromInput(input);
-            string fives = FormatInput.MakeDivisibleByFive(input);
-            List<String> convertedToFives = FormatInput.GroupsOfFive(fives);
-            StringBuilder convertedToNumbers = FormatInput.ConvertIputToNumbers(convertedToFives);
-            Console.WriteLine(convertedToNumbers);
-            List<int> key = KeyTheDeck.CreateDeck();
-            List<int> jokersMoved = KeyTheDeck.MoveJokers(key);
 
+            String input = TakeInput.ReceiveInputToEncrypt();
+            String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
+            string fives = DivideByFive.MakeDivisibleByFive(input);
+            List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
+            StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertIputToNumbers(convertedToFives);
+            Console.WriteLine(convertedToNumbers);
+            //List<int> key = CardDeck.
+            //List<int> jokersMoved = MoveTheJokers.MoveJokers(key);
+            //List<int> cut = CutTheCards.TripleCut(jokersMoved);
             Console.ReadKey();
         }
     }
