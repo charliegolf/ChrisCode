@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="CardDeck.cs" />
     <Compile Include="CreateCipher.cs" />
-    <Compile Include="CreateTheDeck.cs" />
     <Compile Include="KeyTheDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

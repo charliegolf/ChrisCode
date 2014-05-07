@@ -9,20 +9,21 @@ namespace CreateCypher
 {
     public class CardDeck
     {
-        private List<int> deck;
+        private List<string> deck;
 
-        public const int JokerA = 53;
-        public const int JokerB = 54;
-
-        public List<int> CardDeck()
+        public const string JokerA = "53";
+        public const string JokerB = "54";
+        
+        public List<string> CardDeck()
         {
-            this.deck = new List<int>();
+            this.deck = new List<string>();
 
             for (int cardSuites = 0; cardSuites < 4; cardSuites++)
             {
+                
                 for (int cardValues = 1; cardValues <= 13; cardValues++)
                 {
-                    this.deck.Add(cardValues);
+                    this.deck.Add(cardValues + " " + cardSuites);
                 }
             }
 
@@ -32,7 +33,7 @@ namespace CreateCypher
             return deck;
         }
 
-        public void MoveCard(int cardValue, int steps)
+        public void MoveCard(string cardValue, int steps)
         {
             Debug.Assert(steps > 0, "step value has to be positive");
 
@@ -44,7 +45,12 @@ namespace CreateCypher
 
                 if ((newPosition + 1) > deck.Count)
                 {
-                    newPosition -= deck.Count;
+                    newPosition -= deck.Count+1;
+                }
+
+                if ((newPosition + 1) == deck.Count)
+                {
+                    newPosition = steps+1;
                 }
 
                 deck.RemoveAt(originalPosition);
@@ -52,7 +58,7 @@ namespace CreateCypher
             }
         }
 
-        public int FindCardIndex(int cardValue)
+        public int FindCardIndex(string cardValue)
         {
             return deck.IndexOf(cardValue);
         }
