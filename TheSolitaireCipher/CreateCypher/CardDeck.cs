@@ -9,58 +9,59 @@ namespace CreateCypher
 {
     public class CardDeck
     {
-        private List<string> deck;
+        private List<Card> deck;
 
         public const string JokerA = "53";
         public const string JokerB = "54";
         
-        public List<string> CardDeck()
+        public CardDeck()
         {
-            this.deck = new List<string>();
-
-            for (int cardSuites = 0; cardSuites < 4; cardSuites++)
+            this.deck = new List<Card>();
+            
+            foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
             {
-                
-                for (int cardValues = 1; cardValues <= 13; cardValues++)
+                if (suit == CardSuit.JokerA || suit == CardSuit.JokerB)
                 {
-                    this.deck.Add(cardValues + " " + cardSuites);
+                    this.deck.Add(new Card(suit, 1));
+                }
+                else
+                {
+                    for (int cardValues = 1; cardValues <= 13; cardValues++)
+                    {
+                        this.deck.Add(new Card(suit, cardValues));
+                    }
                 }
             }
-
-            this.deck.Add(JokerA);
-            this.deck.Add(JokerB);
-
-            return deck;
         }
 
-        public void MoveCard(string cardValue, int steps)
+        public void MoveCard(int indexPosition, int steps)
         {
             Debug.Assert(steps > 0, "step value has to be positive");
 
-            if (deck.Contains(cardValue))
-            {
-                int originalPosition = FindCardIndex(cardValue);
+            //if (deck.Contains(cardValue))
+            //{
+            //    int originalPosition = FindCardIndex(cardValue);
 
-                int newPosition = originalPosition + steps;
+            //    int newPosition = originalPosition + steps;
 
-                if ((newPosition + 1) > deck.Count)
-                {
-                    newPosition -= deck.Count+1;
-                }
+            //    if ((newPosition + 1) > deck.Count)
+            //    {
+            //        newPosition -= deck.Count+1;
+            //    }
 
-                if ((newPosition + 1) == deck.Count)
-                {
-                    newPosition = steps+1;
-                }
+            //    if ((newPosition + 1) == deck.Count)
+            //    {
+            //        newPosition = steps+1;
+            //    }
 
-                deck.RemoveAt(originalPosition);
-                deck.Insert(newPosition, cardValue);
-            }
+            //    deck.RemoveAt(originalPosition);
+            //    deck.Insert(newPosition, cardValue);
+            //}
         }
 
-        public int FindCardIndex(string cardValue)
+        public int FindCardIndex(CardSuit suit, int faceValue)
         {
-            return deck.IndexOf(cardValue);
+            return deck.IndexOf(new Card(suit, faceValue));
         }
 
         public override string ToString()

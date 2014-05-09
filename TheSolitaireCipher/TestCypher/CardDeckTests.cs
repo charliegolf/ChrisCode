@@ -17,9 +17,16 @@ namespace TestCypher
         {
             CardDeck newDeck = new CardDeck();
 
-            const string CardsInOrder = "1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 53 54";
+            Assert.IsTrue(newDeck.ToString().StartsWith("1 of Clubs 2 of Clubs"));
+            Assert.IsTrue(newDeck.ToString().EndsWith("Joker A Joker B"));
+        }
 
-            Assert.AreEqual(CardsInOrder, newDeck.ToString());
+        [TestMethod]
+        public void FindingIndexOf_Card_Deck()
+        {
+            CardDeck newDeck = new CardDeck();
+
+            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.JokerB, 1));
         }
 
         [TestMethod]
@@ -27,7 +34,7 @@ namespace TestCypher
         {
             CardDeck newDeck = new CardDeck();
 
-            newDeck.MoveCard(CardDeck.JokerA, 1);
+//            newDeck.MoveCard(CardDeck.JokerA, 1);
 
             const string NewOrder = "1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 54 53";
 
@@ -39,8 +46,9 @@ namespace TestCypher
         {
             CardDeck newDeck = new CardDeck();
 
+            int index = newDeck.FindCardIndex()
             //newDeck.MoveCard(CardDeck.JokerA, 1);
-            newDeck.MoveCard(CardDeck.JokerB, 2);
+  //          newDeck.MoveCard(CardDeck.JokerB, 2);
 
             const string NewOrder = "1 54 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 53";
 
