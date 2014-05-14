@@ -37,27 +37,50 @@ namespace CreateCypher
         public void MoveCard(int indexPosition, int steps)
         {
             Debug.Assert(steps > 0, "step value has to be positive");
-
-            //if (deck.Contains(cardValue))
-            //{
-            //    int originalPosition = FindCardIndex(cardValue);
-
-            //    int newPosition = originalPosition + steps;
-
-            //    if ((newPosition + 1) > deck.Count)
-            //    {
-            //        newPosition -= deck.Count+1;
-            //    }
-
-            //    if ((newPosition + 1) == deck.Count)
-            //    {
-            //        newPosition = steps+1;
-            //    }
-
-            //    deck.RemoveAt(originalPosition);
-            //    deck.Insert(newPosition, cardValue);
-            //}
+            Card card = this.deck.ElementAt(indexPosition);
+            int newPosition = indexPosition + steps + 1;
+               if (newPosition <= deck.Count)
+               {
+                   deck.Insert(indexPosition + steps + 1, card);
+                   deck.RemoveAt(indexPosition);
+               }
+               else if (newPosition > deck.Count)
+               {
+                   deck.Insert(newPosition - deck.Count, card);
+                   deck.RemoveAt(indexPosition);
+               }
         }
+
+
+        public CardDeck Shuffle(CardDeck deck)
+        {
+            List<int> tripleCutList = deck;
+
+                if (CardDeck.IndexOf(54) < deck.IndexOf(53) && deck.IndexOf(53) != 53)
+                {
+                    for (int count = deck.IndexOf(53) + 1; count <= deck.Count; count++)
+                    {
+                        tripleCutList.Add(deck.ElementAt(count));
+                        tripleCutList.Add(54);
+                    }
+
+                    for (int count = deck.IndexOf(54) + 1; count < deck.IndexOf(53); count++)
+                    {
+                        tripleCutList.Add(deck.ElementAt(count));
+                        tripleCutList.Add(53);
+                    }
+
+                    for (int count = 0; count < deck.IndexOf(54); count++)
+                    {
+                        tripleCutList.Add(deck.ElementAt(count));
+
+                    }
+                 }
+
+               return tripleCutList;
+       }
+
+
 
         public int FindCardIndex(CardSuit suit, int faceValue)
         {
@@ -68,5 +91,6 @@ namespace CreateCypher
         {
             return string.Join(" ", this.deck);
         }
-    }
+
+     }
 }

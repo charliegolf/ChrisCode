@@ -70,7 +70,7 @@ namespace CreateCipher
     public class ConvertLettersToNumbers
     {
 
-        public static StringBuilder ConvertIputToNumbers(List<string> input)
+        public static StringBuilder ConvertInputToNumbers(List<string> input)
         {
             StringBuilder inputAsLetters = new StringBuilder();
             StringBuilder indexOfAlphabet = new StringBuilder();

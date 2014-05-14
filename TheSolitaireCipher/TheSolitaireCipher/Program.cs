@@ -18,7 +18,7 @@ namespace TheSolitaireCipher
             String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
             string fives = DivideByFive.MakeDivisibleByFive(input);
             List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
-            StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertIputToNumbers(convertedToFives);
+            StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
             Console.WriteLine(convertedToNumbers);
             //List<int> key = CardDeck.
             //List<int> jokersMoved = MoveTheJokers.MoveJokers(key);

@@ -33,27 +33,36 @@ namespace TestCypher
         public void Moving_JokerA_Down_One_Card_Puts_Joker_At_End()
         {
             CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 1);
+            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.JokerA, 1));
+        }
 
-//            newDeck.MoveCard(CardDeck.JokerA, 1);
-
-            const string NewOrder = "1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 54 53";
-
-            Assert.AreEqual(NewOrder, newDeck.ToString());
+        [TestMethod]
+        public void Moving_JokerA_Down_One_Card_From_Last_Position_Puts_Joker_At_1()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 1);
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 1);
+            Assert.AreEqual(1, newDeck.FindCardIndex(CardSuit.JokerA, 1));
         }
 
         [TestMethod]
         public void Moving_JokerB_Down_Two_Cards_Puts_Joker_Near_Top()
         {
             CardDeck newDeck = new CardDeck();
-
-            int index = newDeck.FindCardIndex()
-            //newDeck.MoveCard(CardDeck.JokerA, 1);
-  //          newDeck.MoveCard(CardDeck.JokerB, 2);
-
-            const string NewOrder = "1 54 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 53";
-
-            Assert.AreEqual(NewOrder, newDeck.ToString());
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 2);
+            Assert.AreEqual(2, newDeck.FindCardIndex(CardSuit.JokerB, 1));
         }
 
+        [TestMethod]
+        public void Shuffle_Swaps_Cards_Above_And_Below_Jokers()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 3);
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 44);
+            newDeck.Shuffle(newDeck);
+            Assert.AreEqual(10, newDeck.FindCardIndex(CardSuit.JokerA, 1));
+            Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.JokerB, 1));
+        }
     }
 }
