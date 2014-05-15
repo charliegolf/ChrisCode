@@ -60,7 +60,6 @@ namespace TestCypher
             CardDeck newDeck = new CardDeck();
             newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 3);
             newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 44);
-            newDeck.Shuffle(newDeck);
             Assert.AreEqual(10, newDeck.FindCardIndex(CardSuit.JokerA, 1));
             Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.JokerB, 1));
         }

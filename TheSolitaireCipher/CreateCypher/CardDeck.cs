@@ -52,34 +52,31 @@ namespace CreateCypher
         }
 
 
-        public CardDeck Shuffle()
-        {
+          public CardDeck Shuffle()
+          {
+              if (deck.IndexOf(JokerB) < deck.IndexOf(JokerA) && deck.IndexOf(JokerA) != 53)
+                  {
+                      for (int count = deck.IndexOf(JokerA) + 1; count <= deck.Count; count++)
+                      {
+                          deck.Add(deck.ElementAt(count));
+                          deck.Add(JokerB);
+                      }
 
+                      for (int count = deck.IndexOf(JokerB) + 1; count < deck.IndexOf(JokerA); count++)
+                      {
+                          deck.Add(deck.ElementAt(count));
+                          deck.Add(53);
+                      }
 
-            if (this.deck. < CardDeck.deck.FindCardIndex(JokerA, 1) && CardDeck.deck.FindCardIndex(JokerA,1) != 53)
-                {
-                    for (int count = deck.IndexOf(53) + 1; count <= deck.Count; count++)
-                    {
-                        tripleCutList.Add(deck.ElementAt(count));
-                        tripleCutList.Add(54);
-                    }
+                      for (int count = 0; count < deck.IndexOf(54); count++)
+                      {
+                          deck.Add(deck.ElementAt(count));
+                      }
+                   }
 
-                    for (int count = deck.IndexOf(54) + 1; count < deck.IndexOf(53); count++)
-                    {
-                        tripleCutList.Add(deck.ElementAt(count));
-                        tripleCutList.Add(53);
-                    }
-
-                    for (int count = 0; count < deck.IndexOf(54); count++)
-                    {
-                        tripleCutList.Add(deck.ElementAt(count));
-
-                    }
-                 }
-
-               return tripleCutList;
-       }
-
+                 return deck;
+         }
+          
 
 
         public int FindCardIndex(CardSuit suit, int faceValue)
