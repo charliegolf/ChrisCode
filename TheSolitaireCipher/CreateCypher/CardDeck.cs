@@ -52,11 +52,11 @@ namespace CreateCypher
         }
 
 
-        public CardDeck Shuffle(CardDeck deck)
+        public CardDeck Shuffle()
         {
-            List<int> tripleCutList = deck;
 
-                if (CardDeck.IndexOf(54) < deck.IndexOf(53) && deck.IndexOf(53) != 53)
+
+            if (this.deck. < CardDeck.deck.FindCardIndex(JokerA, 1) && CardDeck.deck.FindCardIndex(JokerA,1) != 53)
                 {
                     for (int count = deck.IndexOf(53) + 1; count <= deck.Count; count++)
                     {
