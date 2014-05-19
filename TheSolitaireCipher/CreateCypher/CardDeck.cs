@@ -54,6 +54,7 @@ namespace CreateCypher
 
           public CardDeck Shuffle()
           {
+              /*
               if (deck.IndexOf(JokerB) < deck.IndexOf(JokerA) && deck.IndexOf(JokerA) != 53)
                   {
                       for (int count = deck.IndexOf(JokerA) + 1; count <= deck.Count; count++)
@@ -74,8 +75,9 @@ namespace CreateCypher
                       }
                    }
 
-                 return deck;
-         }
+                 return deck; */
+          }
+               
           
 
 
