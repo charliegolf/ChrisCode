@@ -83,5 +83,16 @@ namespace TestCypher
             newDeck.Shuffle();
             Assert.AreEqual(50, newDeck.FindCardIndex(CardSuit.Clubs, 1));
         }
+
+        [TestMethod]
+        public void Shuffle_Swaps_Cards_Below_Bottom_Joker_Position_1()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 5);
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 51);
+            Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.JokerB, 1));
+            newDeck.Shuffle();
+            Assert.AreEqual(50, newDeck.FindCardIndex(CardSuit.Clubs, 1));
+        }
     }
 }

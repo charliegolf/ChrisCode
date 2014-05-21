@@ -38,16 +38,18 @@ namespace CreateCypher
         {
             Debug.Assert(steps > 0, "step value has to be positive");
             Card card = this.deck.ElementAt(indexPosition);
-            int newPosition = indexPosition + steps + 1;
-               if (newPosition <= deck.Count)
+            int newPosition = indexPosition + steps;
+               if (newPosition < deck.Count)
                {
-                   deck.Insert(indexPosition + steps + 1, card);
                    deck.RemoveAt(indexPosition);
+                   deck.Insert(indexPosition + steps, card);
+                   
                }
-               else if (newPosition > deck.Count)
+               else if (newPosition >= deck.Count)
                {
-                   deck.Insert(newPosition - deck.Count, card);
                    deck.RemoveAt(indexPosition);
+                   deck.Insert(newPosition - deck.Count, card);
+                   
                }
         }
 
@@ -57,11 +59,19 @@ namespace CreateCypher
 
             var firstJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerA );
             var secondJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerB );
-            int bottonNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker)) + 1;
-            for (int belowFirstJoker = deck.IndexOf(firstJoker); belowFirstJoker >= 0;  belowFirstJoker--)
+            int bottomNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker)) + 1;
+                for (int aboveFirstJoker = deck.IndexOf(firstJoker)-1; aboveFirstJoker >= 0;  aboveFirstJoker--)
                 {
                     deck.Add(deck.ElementAt(0));
                     deck.Remove(deck.ElementAt(0));
+                }
+                for (int belowSecondJoker = deck.IndexOf(secondJoker) + 1; belowSecondJoker < deck.IndexOf(secondJoker)+bottomNumbersTotal; belowSecondJoker++)
+                {
+                    for (int bottom = 0; bottom < bottomNumbersTotal; bottom++ )
+                    {
+                        deck.Insert(bottom, deck.ElementAt(belowSecondJoker));
+                        deck.Remove(deck.ElementAt(belowSecondJoker+1));
+                    }
 
                 }
         }            
