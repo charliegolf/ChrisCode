@@ -52,32 +52,19 @@ namespace CreateCypher
         }
 
 
-          public CardDeck Shuffle()
-          {
-              /*
-              if (deck.IndexOf(JokerB) < deck.IndexOf(JokerA) && deck.IndexOf(JokerA) != 53)
-                  {
-                      for (int count = deck.IndexOf(JokerA) + 1; count <= deck.Count; count++)
-                      {
-                          deck.Add(deck.ElementAt(count));
-                          deck.Add(JokerB);
-                      }
+        public void Shuffle()
+        {
 
-                      for (int count = deck.IndexOf(JokerB) + 1; count < deck.IndexOf(JokerA); count++)
-                      {
-                          deck.Add(deck.ElementAt(count));
-                          deck.Add(53);
-                      }
+            var firstJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerA );
+            var secondJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerB );
+            int bottonNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker)) + 1;
+            for (int belowFirstJoker = deck.IndexOf(firstJoker); belowFirstJoker >= 0;  belowFirstJoker--)
+                {
+                    deck.Add(deck.ElementAt(0));
+                    deck.Remove(deck.ElementAt(0));
 
-                      for (int count = 0; count < deck.IndexOf(54); count++)
-                      {
-                          deck.Add(deck.ElementAt(count));
-                      }
-                   }
-
-                 return deck; */
-          }
-               
+                }
+        }            
           
 
 

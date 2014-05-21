@@ -20,6 +20,7 @@ namespace TheSolitaireCipher
             List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
             StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
             Console.WriteLine(convertedToNumbers);
+            
             //List<int> key = CardDeck.
             //List<int> jokersMoved = MoveTheJokers.MoveJokers(key);
             //List<int> cut = CutTheCards.TripleCut(jokersMoved);
