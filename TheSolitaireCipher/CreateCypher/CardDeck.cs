@@ -37,7 +37,7 @@ namespace CreateCypher
         public void MoveCard(int indexPosition, int steps)
         {
             Debug.Assert(steps > 0, "step value has to be positive");
-            Card card = this.deck.ElementAt(indexPosition);
+            Card card = this.deck[indexPosition];
             int newPosition = indexPosition + steps;
                if (newPosition < deck.Count)
                {
@@ -78,7 +78,7 @@ namespace CreateCypher
           
 
 
-        public int FindCardIndex(CardSuit suit, int faceValue)
+        public int FindCardIndex(CardSuit suit, int faceValue = 1)
         {
             return deck.IndexOf(new Card(suit, faceValue));
         }

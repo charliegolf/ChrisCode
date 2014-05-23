@@ -12,7 +12,7 @@ namespace ExperimentInFormAutomation
         public void AutomateThisTextBox(AutomationElement aeForm)
         {
 
-            AutomationElement aeText = aeForm.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit));
+            AutomationElement aeText = aeForm.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit));
             ValuePattern vpTextBox = (ValuePattern)aeText.GetCurrentPattern(ValuePattern.Pattern);
             vpTextBox.SetValue("Holy Cow, it worked!!");
             
