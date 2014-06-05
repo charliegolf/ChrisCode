@@ -69,12 +69,29 @@ namespace CreateCypher
             var firstJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerA );
             var secondJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerB );
             int bottonNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker)) + 1;
+
+            if (deck.IndexOf(firstJoker) < deck.IndexOf(secondJoker))
+            {
+                for (int belowFirstJoker = deck.IndexOf(firstJoker)-1; belowFirstJoker >= 0; belowFirstJoker--)
+                {
+                    deck.Add(deck.ElementAt(0));
+                    deck.Remove(deck.ElementAt(0));
+                }
+            }
+            else
+            if (deck.IndexOf(secondJoker) < deck.IndexOf(firstJoker))
+            {
+                for (int belowSecondJoker = deck.IndexOf(firstJoker) - 1; belowSecondJoker >= 0; belowSecondJoker--)
+                {
+                    deck.Add(deck.ElementAt(0));
+                    deck.Remove(deck.ElementAt(0));
+                }
+             }
+
             for (int belowFirstJoker = deck.IndexOf(firstJoker); belowFirstJoker >= 0;  belowFirstJoker--)
                 {
                     deck.Add(deck.ElementAt(0));
                     deck.Remove(deck.ElementAt(0));
-
-
                 }
         }            
           
