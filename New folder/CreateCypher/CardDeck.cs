@@ -39,15 +39,26 @@ namespace CreateCypher
             Debug.Assert(steps > 0, "step value has to be positive");
             Card card = this.deck.ElementAt(indexPosition);
             int newPosition = indexPosition + steps + 1;
-               if (newPosition <= deck.Count)
+            int topBottomSwapPosition = indexPosition + steps - deck.Count;
+               if (newPosition < deck.Count-1)
                {
                    deck.Insert(indexPosition + steps + 1, card);
                    deck.RemoveAt(indexPosition);
                }
-               else if (newPosition > deck.Count)
+               if (indexPosition == deck.Count-1)
+               {
+                   deck.Insert(indexPosition + steps - deck.Count +1, card);
+                   deck.RemoveAt(indexPosition);
+                   deck.Add(this.deck.ElementAt(0));
+                   deck.RemoveAt(0);
+               }
+
+               else if (newPosition > deck.Count-1)
                {
                    deck.Insert(newPosition - deck.Count, card);
-                   deck.RemoveAt(indexPosition);
+                   deck.RemoveAt(indexPosition+1);
+                   deck.Add(this.deck.ElementAt(0));
+                   deck.RemoveAt(0);
                }
         }
 
@@ -62,6 +73,7 @@ namespace CreateCypher
                 {
                     deck.Add(deck.ElementAt(0));
                     deck.Remove(deck.ElementAt(0));
+
 
                 }
         }            

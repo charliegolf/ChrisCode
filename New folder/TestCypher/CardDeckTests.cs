@@ -38,12 +38,12 @@ namespace TestCypher
         }
 
         [TestMethod]
-        public void Moving_JokerA_Down_One_Card_From_Last_Position_Puts_Joker_At_1()
+        public void Moving_JokerA_Down_One_Card_From_Last_Position_Puts_Joker_At_0()
         {
             CardDeck newDeck = new CardDeck();
             newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 1);
             newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 1);
-            Assert.AreEqual(1, newDeck.FindCardIndex(CardSuit.JokerA, 1));
+            Assert.AreEqual(0, newDeck.FindCardIndex(CardSuit.JokerA, 1));
         }
 
         [TestMethod]
@@ -51,15 +51,16 @@ namespace TestCypher
         {
             CardDeck newDeck = new CardDeck();
             newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 2);
-            Assert.AreEqual(2, newDeck.FindCardIndex(CardSuit.JokerB, 1));
+            Assert.AreEqual(1, newDeck.FindCardIndex(CardSuit.JokerB, 1));
         }
 
         [TestMethod]
         public void Moving_A_Joker_Down_The_Pack_Without_Crossing_Boundaries()
         {
             CardDeck newDeck = new CardDeck();
-            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 53);
-            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.JokerB, 1));
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 20);
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 2);
+            Assert.AreEqual(21, newDeck.FindCardIndex(CardSuit.JokerB, 1));
 
         }
 
@@ -67,10 +68,10 @@ namespace TestCypher
         public void Shuffle_Swaps_Cards_Above_Top_Joker_Position_1()
         {
             CardDeck newDeck = new CardDeck();
-            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 2);
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA, 1), 3);
             Assert.AreEqual(1, newDeck.FindCardIndex(CardSuit.JokerA, 1));
             newDeck.Shuffle();
-            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.Clubs, 1));
+            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.Clubs, 2));
         }
 
 
