@@ -43,13 +43,20 @@ namespace CreateCypher
                {
                    deck.RemoveAt(indexPosition);
                    deck.Insert(indexPosition + steps, card);
-                   
                }
-               else if (newPosition >= deck.Count)
+
+               else if (newPosition == deck.Count)
                {
                    deck.RemoveAt(indexPosition);
-                   deck.Insert(newPosition - deck.Count, card);
-                   
+                   deck.Insert(newPosition - deck.Count - 1, card);
+                   deck.Add(deck.ElementAt(1));
+                   deck.RemoveAt(1);    
+               }
+
+               else if (newPosition > deck.Count)
+               {
+                   deck.RemoveAt(indexPosition);
+                   deck.Insert(newPosition - deck.Count-1, card);
                }
         }
 
@@ -59,23 +66,29 @@ namespace CreateCypher
 
             var firstJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerA );
             var secondJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerB );
-            int bottomNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker)) + 1;
+            int bottomNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker))-1;
+            
                 for (int aboveFirstJoker = deck.IndexOf(firstJoker)-1; aboveFirstJoker >= 0;  aboveFirstJoker--)
                 {
                     deck.Add(deck.ElementAt(0));
                     deck.Remove(deck.ElementAt(0));
                 }
-                for (int belowSecondJoker = deck.IndexOf(secondJoker) + 1; belowSecondJoker < deck.IndexOf(secondJoker)+bottomNumbersTotal; belowSecondJoker++)
+                int belowSecondJoker = deck.IndexOf(secondJoker) + 1;
+                for (int bottom = 0; bottom < bottomNumbersTotal; bottom++)
                 {
-                    for (int bottom = 0; bottom < bottomNumbersTotal; bottom++ )
-                    {
-                        deck.Insert(bottom, deck.ElementAt(belowSecondJoker));
-                        deck.Remove(deck.ElementAt(belowSecondJoker+1));
-                    }
-
+                        deck.Insert(0, deck.ElementAt(belowSecondJoker));
+                        Card test = deck.ElementAt(belowSecondJoker + 1);
+                        deck.RemoveAt(belowSecondJoker + 1);
+                        belowSecondJoker++;
                 }
         }            
           
+        public void Cut()
+        {
+            Card bottomValue = deck.ElementAt(53);
+            int faceValue = bottomValue.FaceValue;
+
+        }
 
 
         public int FindCardIndex(CardSuit suit, int faceValue = 1)

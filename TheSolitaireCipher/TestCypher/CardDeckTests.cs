@@ -55,6 +55,15 @@ namespace TestCypher
         }
 
         [TestMethod]
+        public void Moving_JokerB_Down_One_Cards_Puts_Joker_At_Top()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB), 1);
+            Assert.AreEqual(0, newDeck.FindCardIndex(CardSuit.JokerB));
+            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.Clubs, 1));
+        }
+
+        [TestMethod]
         public void Moving_A_Joker_Down_The_Pack_Without_Crossing_Boundaries()
         {
             CardDeck newDeck = new CardDeck();
@@ -92,7 +101,18 @@ namespace TestCypher
             newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB), 51);
             Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.JokerB));
             newDeck.Shuffle();
-            Assert.AreEqual(50, newDeck.FindCardIndex(CardSuit.Clubs, 1));
+            Assert.AreEqual(0, newDeck.FindCardIndex(CardSuit.Spades, 13));
+        }
+
+        [TestMethod]
+        public void Shuffle_Swaps_Cards_Below_Bottom_Joker_Position_2()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA), 12);
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB), 35);
+            newDeck.Shuffle();
+            Assert.AreEqual(0, newDeck.FindCardIndex(CardSuit.Spades, 13));
+            Assert.AreEqual(53, newDeck.FindCardIndex(CardSuit.Clubs, 10));
         }
     }
 }
