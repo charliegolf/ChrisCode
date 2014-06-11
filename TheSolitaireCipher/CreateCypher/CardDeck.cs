@@ -88,6 +88,12 @@ namespace CreateCypher
             Card bottomValue = deck.ElementAt(53);
             int faceValue = bottomValue.FaceValue;
 
+            for (int cardCount = 0; cardCount < faceValue; cardCount++)
+            {
+                deck.Insert(52, deck.ElementAt(0));
+                deck.Remove(deck.ElementAt(0));
+            }
+
         }
 
 
