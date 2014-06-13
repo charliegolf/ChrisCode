@@ -93,10 +93,41 @@ namespace CreateCypher
                 deck.Insert(52, deck.ElementAt(0));
                 deck.Remove(deck.ElementAt(0));
             }
-
         }
 
 
+
+        public char FindOutputLetter()
+        {
+            
+
+            if (deck.ElementAt(0).ToString() == JokerA || deck.ElementAt(0).ToString() == JokerB)
+            {
+                Card topValue = deck.ElementAt(1);
+                int faceValue = topValue.FaceValue;
+                Card cardToConvert = deck.ElementAt(faceValue - 1);
+                int valueToconvert = cardToConvert.FaceValue;
+                char cardAsLetter;
+                string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                cardAsLetter = alphabet[valueToconvert - 1];
+                return cardAsLetter;
+            }
+            else
+            {
+                Card topValue = deck.ElementAt(0);
+                int faceValue = topValue.FaceValue;
+                Card cardToConvert = deck.ElementAt(faceValue - 1);
+                int valueToconvert = cardToConvert.FaceValue;
+                char cardAsLetter;
+                string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                cardAsLetter = alphabet[valueToconvert - 1];
+                return cardAsLetter;
+            }
+
+         }
+
+
+        
         public int FindCardIndex(CardSuit suit, int faceValue = 1)
         {
             return deck.IndexOf(new Card(suit, faceValue));

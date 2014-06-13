@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CreateCipher;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 
@@ -11,20 +13,20 @@ namespace TheSolitaireCipher
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
+        
         {
-
-            String input = TakeInput.ReceiveInputToEncrypt();
-            String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
-            string fives = DivideByFive.MakeDivisibleByFive(input);
-            List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
-            StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
-            Console.WriteLine(convertedToNumbers);
+            Application.EnableVisualStyles();
+            /*
+           
             
-            //List<int> key = CardDeck.
-            //List<int> jokersMoved = MoveTheJokers.MoveJokers(key);
-            //List<int> cut = CutTheCards.TripleCut(jokersMoved);
+            List<int> key = CardDeck.
+            List<int> jokersMoved = MoveTheJokers.MoveJokers(key);
+            List<int> cut = CutTheCards.TripleCut(jokersMoved);
             Console.ReadKey();
+             */
+            Application.Run(new MainForm());
         }
+       
     }
 }

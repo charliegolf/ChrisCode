@@ -119,11 +119,55 @@ namespace TestCypher
         public void Cut_Moves_Cards_to_Above_Bottom_Joker_Position()
         {
             CardDeck newDeck = new CardDeck();
-            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerA), 5);
-            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB), 48);
-            newDeck.Shuffle();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.Spades, 2), 13);
             newDeck.Cut();
-            Assert.AreEqual(46, newDeck.FindCardIndex(CardSuit.Clubs, 12));
+            Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.Clubs, 2));
         }
+
+        [TestMethod]
+        public void Cut_Moves_Cards_to_Above_Bottom_Joker_Position_2()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.Spades, 4), 11);
+            newDeck.Cut();
+            Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.Clubs, 4));
+        }
+
+        [TestMethod]
+        public void Cut_Moves_Cards_to_Above_Bottom_Joker_Position_3()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.Spades, 10), 5);
+            newDeck.Cut();
+            Assert.AreEqual(51, newDeck.FindCardIndex(CardSuit.Clubs, 10));
+        }
+
+        [TestMethod]
+        public void Find_The_Output_Letter_1()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.Spades, 10), 6);
+            char outputLetter = newDeck.FindOutputLetter();
+            Assert.AreEqual('J', outputLetter);
+        }
+
+        [TestMethod]
+        public void Find_The_Output_Letter_2()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.Diamonds, 3), 39);
+            char outputLetter = newDeck.FindOutputLetter();
+            Assert.AreEqual('C', outputLetter);
+        }
+
+        [TestMethod]
+        public void Find_The_Output_Letter_3()
+        {
+            CardDeck newDeck = new CardDeck();
+            newDeck.MoveCard(newDeck.FindCardIndex(CardSuit.JokerB, 1), 1);
+            char outputLetter = newDeck.FindOutputLetter();
+            Assert.AreEqual('A', outputLetter);
+        }
+
     }
 }
