@@ -24,15 +24,28 @@ namespace TheSolitaireCipher
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String input = inputField.Text;
+            String input = inputField.Text.ToUpper();
             String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
             string fives = CreateCipher.DivideByFive.MakeDivisibleByFive(input);
             List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
             StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
+            StringBuilder keyStream = new StringBuilder();
             CardDeck keyDeck = new CardDeck();
-
-
-            encryptedField.Text = convertedToNumbers.ToString(); ;
+            int JokerAIndex = 52;
+            int JokerBIndex = 53;
+            for (int countLetter = 0; countLetter <= convertedToNumbers.Length; countLetter++)
+            {
+                keyDeck.MoveCard(JokerAIndex,1);
+                JokerAIndex = JokerAIndex + 1;
+                keyDeck.MoveCard(JokerBIndex,2);
+                JokerBIndex = JokerBIndex + 2;
+                keyDeck.Shuffle();
+                keyDeck.Cut();
+                keyStream.Append((keyDeck.FindOutputLetter()));
+            }
+            
+            //encryptedField.Text = convertedToNumbers.ToString();
+            encryptedField.Text = keyStream.ToString();
         }
     }
 }
