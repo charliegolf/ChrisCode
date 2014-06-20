@@ -27,7 +27,7 @@ namespace TestCipher
         {
              string A = "Adkfjt"; ;
              List<String> aList = MakeGroupsOfFive.GroupsOfFive(A);
-             StringBuilder indexA = ConvertLettersToNumbers.ConvertInputToNumbers(aList);
+             List <string> indexA = ConvertLettersToNumbers.ConvertInputToNumbers(aList);
              string indexAString = indexA.ToString();
              Int16 atIndex0 = Convert.ToInt16(indexAString);
              Assert.IsTrue(atIndex0 == 1);
@@ -38,7 +38,7 @@ namespace TestCipher
         {
              string J = "J";
              List<String> jList = MakeGroupsOfFive.GroupsOfFive(J);
-             StringBuilder indexA = ConvertLettersToNumbers.ConvertInputToNumbers(jList);
+             List <string> indexA = ConvertLettersToNumbers.ConvertInputToNumbers(jList);
              string indexAString = indexA.ToString();
              Int16 atIndex0 = Convert.ToInt16(indexAString);
              Assert.IsTrue(atIndex0 == 10);
@@ -50,8 +50,8 @@ namespace TestCipher
          {
               string Z = "Z";
               List<String> zList = MakeGroupsOfFive.GroupsOfFive(Z);
-              StringBuilder indexA = ConvertLettersToNumbers.ConvertInputToNumbers(zList); string indexAString = indexA.ToString();
-             Int16 atIndex0 = Convert.ToInt16(indexAString);
+              List <string> indexA = ConvertLettersToNumbers.ConvertInputToNumbers(zList); string indexAString = indexA.ToString();
+              Int16 atIndex0 = Convert.ToInt16(indexAString);
               Assert.IsTrue(atIndex0 == 26);
          }
         /*

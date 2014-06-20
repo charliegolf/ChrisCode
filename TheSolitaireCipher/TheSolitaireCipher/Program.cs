@@ -17,14 +17,6 @@ namespace TheSolitaireCipher
         
         {
             Application.EnableVisualStyles();
-            /*
-           
-            
-            List<int> key = CardDeck.
-            List<int> jokersMoved = MoveTheJokers.MoveJokers(key);
-            List<int> cut = CutTheCards.TripleCut(jokersMoved);
-            Console.ReadKey();
-             */
             Application.Run(new MainForm());
         }
        

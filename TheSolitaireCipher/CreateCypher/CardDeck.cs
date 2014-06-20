@@ -63,24 +63,48 @@ namespace CreateCypher
 
         public void Shuffle()
         {
+           
+            var firstJoker = deck.FirstOrDefault(Joker => Joker.Suit == CardSuit.JokerA);
+            var secondJoker = deck.FirstOrDefault(Joker => Joker.Suit == CardSuit.JokerB);
 
-            var firstJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerA );
-            var secondJoker = deck.FirstOrDefault(Joker => Joker.Suit==CardSuit.JokerB );
-            int bottomNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker))-1;
-            
-                for (int aboveFirstJoker = deck.IndexOf(firstJoker)-1; aboveFirstJoker >= 0;  aboveFirstJoker--)
+            if (deck.IndexOf(firstJoker) < deck.IndexOf(secondJoker))
+            {
+                for (int aboveFirstJoker = deck.IndexOf(firstJoker) - 1; aboveFirstJoker >= 0; aboveFirstJoker--)
                 {
                     deck.Add(deck.ElementAt(0));
                     deck.Remove(deck.ElementAt(0));
                 }
+                int bottomNumbersTotal = (deck.Count() - deck.IndexOf(secondJoker)) - 1;
                 int belowSecondJoker = deck.IndexOf(secondJoker) + 1;
                 for (int bottom = 0; bottom < bottomNumbersTotal; bottom++)
                 {
-                        deck.Insert(0, deck.ElementAt(belowSecondJoker));
-                        Card test = deck.ElementAt(belowSecondJoker + 1);
-                        deck.RemoveAt(belowSecondJoker + 1);
-                        belowSecondJoker++;
+                    deck.Insert(0, deck.ElementAt(belowSecondJoker));
+                    Card test = deck.ElementAt(belowSecondJoker + 1);
+                    deck.RemoveAt(belowSecondJoker + 1);
+                    belowSecondJoker++;
                 }
+            }
+            else
+            {
+                for (int aboveFirstJoker = deck.IndexOf(secondJoker)-1; aboveFirstJoker >= 0; aboveFirstJoker--)
+                {
+                    if (aboveFirstJoker > 0)
+                    { 
+                    deck.Add(deck.ElementAt(aboveFirstJoker));
+                    deck.Remove(deck.ElementAt(aboveFirstJoker));
+                }
+                int belowSecondJoker = deck.IndexOf(firstJoker) + 1;
+                int bottomNumbersTotal = (deck.Count() - deck.IndexOf(firstJoker)) - 1;
+                for (int bottom = 0; bottom < bottomNumbersTotal; bottom++)
+                {
+                    deck.Insert(0, deck.ElementAt(belowSecondJoker));
+
+                    Card test = deck.ElementAt(belowSecondJoker + 1);
+                    deck.RemoveAt(belowSecondJoker + 1);
+                    belowSecondJoker++;
+                    }
+                }
+            }
         }            
           
         public void Cut()
@@ -131,9 +155,7 @@ namespace CreateCypher
                 }
             }
 
-
-
-        
+                
         public int FindCardIndex(CardSuit suit, int faceValue = 1)
         {
             return deck.IndexOf(new Card(suit, faceValue));

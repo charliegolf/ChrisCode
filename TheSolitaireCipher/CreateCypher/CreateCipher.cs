@@ -70,11 +70,11 @@ namespace CreateCipher
     public class ConvertLettersToNumbers
     {
 
-        public static StringBuilder ConvertInputToNumbers(List<string> input)
+        public static List<string> ConvertInputToNumbers(List<string> input)
         {
-            StringBuilder inputAsLetters = new StringBuilder();
+            List <string> inputAsLetters = new List <string>();
             StringBuilder indexOfAlphabet = new StringBuilder();
-            StringBuilder inputAsNumbers = new StringBuilder();
+            List <string> inputAsNumbers = new List <string>();
             String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             indexOfAlphabet.Append(alphabet);
             List<String> inputList = new List<String>();
@@ -82,19 +82,21 @@ namespace CreateCipher
 
             foreach (String fives in inputList)
             {
-                inputAsLetters.Append(fives);
+                inputAsLetters.Add(fives);
             }
 
-            for (int i = 0; i < inputAsLetters.Length; i++)
+            for (int i = 0; i < inputAsLetters.Count; i++)
             {
-                char c = inputAsLetters[i];
+                string item = inputAsLetters[i];
                 for (int n = 0; n < indexOfAlphabet.Length; n++)
                 {
-                    char letter = indexOfAlphabet[n];
-                    if (c == letter)
+                    string letter = Convert.ToString(indexOfAlphabet[n]);
+                    foreach (char character in item)
                     {
-                        inputAsNumbers.Append(n + 1);
-                        inputAsNumbers.Append(' ');
+                         if (letter.Equals(Convert.ToString(character)))
+                         {
+                              inputAsNumbers.Add(Convert.ToString(n + 1));
+                         }
                     }
                 }
             }

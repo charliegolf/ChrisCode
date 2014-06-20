@@ -28,17 +28,16 @@ namespace TheSolitaireCipher
             String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
             string fives = CreateCipher.DivideByFive.MakeDivisibleByFive(input);
             List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
-            StringBuilder convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
+            List <string> convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
             StringBuilder keyStream = new StringBuilder();
             CardDeck keyDeck = new CardDeck();
-            int JokerAIndex = 52;
-            int JokerBIndex = 53;
-            for (int countLetter = 0; countLetter <= convertedToNumbers.Length; countLetter++)
+
+            for (int countLetter = 0; countLetter < convertedToNumbers.Count; countLetter++)
             {
-                keyDeck.MoveCard(JokerAIndex,1);
-                JokerAIndex = JokerAIndex + 1;
-                keyDeck.MoveCard(JokerBIndex,2);
-                JokerBIndex = JokerBIndex + 2;
+                int jokerAIndex = keyDeck.FindCardIndex(CardSuit.JokerA);
+                keyDeck.MoveCard(jokerAIndex,1);
+                int jokerBIndex = keyDeck.FindCardIndex(CardSuit.JokerB);
+                keyDeck.MoveCard(jokerBIndex,2);
                 keyDeck.Shuffle();
                 keyDeck.Cut();
                 keyStream.Append((keyDeck.FindOutputLetter()));
