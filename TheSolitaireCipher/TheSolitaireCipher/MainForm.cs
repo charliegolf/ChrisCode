@@ -26,7 +26,7 @@ namespace TheSolitaireCipher
         {
             String input = inputField.Text.ToUpper();
             String noSpaces = RemoveSpaces.RemoveSpacesFromInput(input);
-            string fives = CreateCipher.DivideByFive.MakeDivisibleByFive(input);
+            string fives = CreateCipher.DivideByFive.MakeDivisibleByFive(noSpaces);
             List<String> convertedToFives = MakeGroupsOfFive.GroupsOfFive(fives);
             List <string> convertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(convertedToFives);
             StringBuilder keyStream = new StringBuilder();
@@ -43,8 +43,18 @@ namespace TheSolitaireCipher
                 keyStream.Append((keyDeck.FindOutputLetter()));
             }
             
-            //encryptedField.Text = convertedToNumbers.ToString();
-            encryptedField.Text = keyStream.ToString();
+                encryptedField.Text = keyStream.ToString();
+                StringBuilder keystreamString = new StringBuilder();
+                keystreamString = keyStream;
+                StringBuilder encryptedConvertedToNumbers = new StringBuilder();
+
+
+
+                //for (int countEncryptedLetters = 0; countEncryptedLetters < keyStream.Length; countEncryptedLetters++)
+              //  {
+                    encryptedConvertedToNumbers = CreateCipher.ConvertEncryptedLettersToNumbers.ConvertEncryptedInputToNumbers(keystreamString);
+              //  }
+               
         }
     }
 }

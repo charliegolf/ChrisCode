@@ -23,6 +23,8 @@ namespace CreateCipher
 
         public static String RemoveSpacesFromInput(string input)
         {
+            Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+            input = rgx.Replace(input, "");
             string spacelessInput = input.Replace(" ", "");
             return spacelessInput;
         }
@@ -72,9 +74,9 @@ namespace CreateCipher
 
         public static List<string> ConvertInputToNumbers(List<string> input)
         {
-            List <string> inputAsLetters = new List <string>();
+            List<string> inputAsLetters = new List<string>();
             StringBuilder indexOfAlphabet = new StringBuilder();
-            List <string> inputAsNumbers = new List <string>();
+            List<string> inputAsNumbers = new List<string>();
             String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             indexOfAlphabet.Append(alphabet);
             List<String> inputList = new List<String>();
@@ -93,15 +95,43 @@ namespace CreateCipher
                     string letter = Convert.ToString(indexOfAlphabet[n]);
                     foreach (char character in item)
                     {
-                         if (letter.Equals(Convert.ToString(character)))
-                         {
-                              inputAsNumbers.Add(Convert.ToString(n + 1));
-                         }
+                        if (letter.Equals(Convert.ToString(character)))
+                        {
+                            inputAsNumbers.Add(Convert.ToString(n + 1));
+                        }
                     }
                 }
             }
             return inputAsNumbers;
         }
+
     }
+
+        public class ConvertEncryptedLettersToNumbers
+        {
+
+            public static StringBuilder ConvertEncryptedInputToNumbers(StringBuilder input)
+        {
+            StringBuilder inputAsLetters = new StringBuilder();
+            StringBuilder indexOfAlphabet = new StringBuilder();
+            StringBuilder inputAsNumbers = new StringBuilder();
+            String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            indexOfAlphabet.Append(alphabet);
+            StringBuilder inputList = new StringBuilder();
+            inputList = input;
+
+            for (int i = 0; i < inputAsLetters.Length; i++)
+            {
+                char item = inputAsLetters[i];
+                for (int n = 0; n < indexOfAlphabet.Length; n++)
+                {
+                    string letter = Convert.ToString(indexOfAlphabet[n]);
+                    inputAsNumbers.Append(Convert.ToString(n + 1));
+                }
+            }
+            return inputAsNumbers;
+        }
+        }
+    
   }
   
