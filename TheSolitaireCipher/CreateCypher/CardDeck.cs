@@ -121,6 +121,13 @@ namespace CreateCypher
 
 
 
+      //  public string ModulusTwentySix()
+      //  {
+
+     //   }
+
+
+
         public char FindOutputLetter()
         {
 
