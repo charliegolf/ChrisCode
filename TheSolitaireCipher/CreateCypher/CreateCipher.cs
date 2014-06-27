@@ -107,9 +107,27 @@ namespace CreateCipher
 
 	}
 
+
+	public class ConvertNumbersToLetters
+	{
+		public static List<char> ConvertOutputToLetters(List<int> inputList)
+		{
+			List<char> outputAsLetters = new List<char>();
+			string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+			for (int i = 0; i < inputList.Count(); i++)
+			{
+				int value = inputList.ElementAt(i);
+				outputAsLetters.Add(alphabet.ElementAt(value));
+			}
+			return outputAsLetters;
+		}
+	}
+
+
+
 	public class ConvertEncryptedLettersToNumbers
 	{
-
 		public static StringBuilder ConvertEncryptedInputToNumbers(StringBuilder input)
 		{
 			StringBuilder inputAsLetters = new StringBuilder();
@@ -134,13 +152,23 @@ namespace CreateCipher
 	}
 	public class SubtractNumbers
 	{
-		public IEnumerable<int> SubtractKeys(List<int> list1, List<int> list2)
+		public static IEnumerable<int> SubtractKeys(List<int> list1, List<int> list2)
 		{
-			IEnumerable<int> subtractedList = new List<int>();
-			subtractedList = list1.Zip(list2,(a,b)=>(a+b));
+			IEnumerable<int> subtracted = new List<int>();
+			subtracted = list1.Zip(list2, (a, b) => (a + b));
+			List<int>  subtractedList = new List<int>();
+			subtractedList = subtracted.ToList();
+			foreach (int number in subtractedList)
+			{
+				if (number > 26)
+				{
+					int correctedValue = number - 26;
+					subtractedList.RemoveAt(number);
+					subtractedList.Insert(number, correctedValue);
+				}
+			}
 			return subtractedList;
 		}
 	}
-
 }
   
