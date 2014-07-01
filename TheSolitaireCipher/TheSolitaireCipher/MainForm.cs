@@ -47,16 +47,56 @@ namespace TheSolitaireCipher
 			List<int> stageTwoConvertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(KeyConvertedToFives);
 			IEnumerable<int> subtractedString = SubtractNumbers.SubtractKeys(stageOneConvertedToNumbers, stageTwoConvertedToNumbers);
 			List<int> subtractedStringList = subtractedString.ToList();
-			List<char> encryptedAsLettersList = ConvertNumbersToLetters.ConvertOutputToLetters(subtractedStringList);
+			List<string> encryptedAsLettersList = ConvertNumbersToLetters.ConvertOutputToLetters(subtractedStringList);
 
 			StringBuilder encrypted = new StringBuilder();
 
 			for (int i = 0; i < encryptedAsLettersList.Count(); i++)
 			{
-				encrypted.Append(subtractedStringList.ElementAt(i) + ",");
+				encrypted.Append(subtractedStringList.ElementAt(i) + " ");
 			}
 
 			encryptedField.Text = encrypted.ToString();
+						
+
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			StringBuilder keyStream = new StringBuilder();
+			CardDeck keyDeck = new CardDeck();
+
+			String encryptedString = encryptedField.Text;
+			string[] noSpaces = encryptedString.Split(' ');
+			
+			foreach (string number in noSpaces)
+			{
+				if (number != "")
+				{
+					int jokerAIndex = keyDeck.FindCardIndex(CardSuit.JokerA);
+					keyDeck.MoveCard(jokerAIndex, 1);
+					int jokerBIndex = keyDeck.FindCardIndex(CardSuit.JokerB);
+					keyDeck.MoveCard(jokerBIndex, 2);
+					keyDeck.Shuffle();
+					keyDeck.Cut();
+					keyStream.Append((keyDeck.FindOutputLetter()));
+				}
+			}
+			string keystreamString = keyStream.ToString();
+			List<String> decryptConvertedToFives = MakeGroupsOfFive.GroupsOfFive(encryptedString);
+			List<int> decryptConvertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(decryptConvertedToFives);
+			List<String> keyConvertedToFives = MakeGroupsOfFive.GroupsOfFive(keystreamString);
+			List<int> keyConvertedToNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(keyConvertedToFives);
+
+			decrypted.Text = keystreamString;
+
+
+			//StringBuilder decryptKeystream = new StringBuilder();
+
+
+			//List<int> encryptedAsNumbers = ConvertLettersToNumbers.ConvertInputToNumbers(encryptedAsLettersList);
+
+
 		}
 	}
 }

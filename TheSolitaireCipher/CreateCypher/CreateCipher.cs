@@ -110,15 +110,16 @@ namespace CreateCipher
 
 	public class ConvertNumbersToLetters
 	{
-		public static List<char> ConvertOutputToLetters(List<int> inputList)
+		public static List<string> ConvertOutputToLetters(List<int> inputList)
 		{
-			List<char> outputAsLetters = new List<char>();
+			List<string> outputAsLetters = new List<string>();
 			string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 			for (int i = 0; i < inputList.Count(); i++)
 			{
 				int value = inputList.ElementAt(i);
-				outputAsLetters.Add(alphabet.ElementAt(value));
+				
+				outputAsLetters.Add(alphabet.ElementAt(value).ToString());
 			}
 			return outputAsLetters;
 		}
@@ -158,13 +159,14 @@ namespace CreateCipher
 			subtracted = list1.Zip(list2, (a, b) => (a + b));
 			List<int>  subtractedList = new List<int>();
 			subtractedList = subtracted.ToList();
-			foreach (int number in subtractedList)
+			for (int number = 0; number < subtractedList.Count(); number++ )
 			{
-				if (number > 26)
+				if (subtractedList.ElementAt(number) >= 26)
 				{
-					int correctedValue = number - 26;
-					subtractedList.RemoveAt(number);
-					subtractedList.Insert(number, correctedValue);
+					int correctedValue = subtractedList.ElementAt(number) - 26;
+					int indexToInsert = number;
+					subtractedList.RemoveAt(indexToInsert);
+					subtractedList.Insert(indexToInsert, correctedValue);
 				}
 			}
 			return subtractedList;
